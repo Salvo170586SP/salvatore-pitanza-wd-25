@@ -16,6 +16,30 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestione smooth scroll per i link anchor
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
