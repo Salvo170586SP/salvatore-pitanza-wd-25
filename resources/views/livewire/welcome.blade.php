@@ -3,6 +3,7 @@
        <livewire:components-welcome.header />
        <livewire:components-welcome.about />
        <livewire:components-welcome.skills />
+       <livewire:components-welcome.education />
     </div>
 </div>
 
