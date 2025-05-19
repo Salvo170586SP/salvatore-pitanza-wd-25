@@ -35,7 +35,7 @@
                             </div>
                             <div class="w-full flex justify-center gap-2">
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -44,7 +44,7 @@
                                     Code
                                 </button>
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -75,7 +75,7 @@
                             </div>
                             <div class="w-full flex justify-center gap-2">
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -84,7 +84,7 @@
                                     Code
                                 </button>
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -115,7 +115,7 @@
                             </div>
                             <div class="w-full flex justify-center gap-2">
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -124,7 +124,7 @@
                                     Code
                                 </button>
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -155,7 +155,7 @@
                             </div>
                             <div class="w-full flex justify-center gap-2">
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -164,7 +164,7 @@
                                     Code
                                 </button>
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -195,7 +195,7 @@
                             </div>
                             <div class="w-full flex justify-center gap-2">
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -204,7 +204,7 @@
                                     Code
                                 </button>
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -235,7 +235,7 @@
                             </div>
                             <div class="w-full flex justify-center gap-2">
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -244,7 +244,7 @@
                                     Code
                                 </button>
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -275,7 +275,7 @@
                             </div>
                             <div class="w-full flex justify-center gap-2">
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -284,7 +284,7 @@
                                     Code
                                 </button>
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -315,7 +315,7 @@
                             </div>
                             <div class="w-full flex justify-center gap-2">
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -324,7 +324,7 @@
                                     Code
                                 </button>
                                 <button
-                                    class="cursor-pointer flex items-center bg-blue-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
+                                    class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
                                         <path stroke-linecap="round" stroke-linejoin="round"

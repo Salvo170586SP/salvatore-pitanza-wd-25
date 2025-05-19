@@ -116,15 +116,15 @@
 
                 <div class="flex items-center justify-center md:justify-start gap-3 mt-3">
                     <button title="LinkedIn"
-                        class="mt-2 cursor-pointer bg-slate-100 p-1.5 rounded-full shadow-md hover:shadow-lg transition-all border">
+                        class="mt-2 cursor-pointer bg-white  p-2 rounded-full shadow-md hover:shadow-lg transition-all border">
                         <img class="w-5 md:w-7 h-5 md:h-7" src="{{asset('imgs/icon/linkedin.svg')}}" alt="LinkedIn">
                     </button>
                     <button title="GitHub"
-                        class="mt-2 cursor-pointer bg-slate-100 p-1.5 rounded-full shadow-md hover:shadow-lg transition-all border">
+                        class="mt-2 cursor-pointer p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all border">
                         <img class="w-5 md:w-7 h-5 md:h-7" src="{{asset('imgs/icon/github.svg')}}" alt="GitHub">
                     </button>
                     <button title="Instagram"
-                        class="mt-2 cursor-pointer bg-slate-100 p-1.5 rounded-full shadow-md hover:shadow-lg transition-all border">
+                        class="mt-2 cursor-pointer bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all border">
                         <img class="w-5 md:w-7 h-5 md:h-7" src="{{asset('imgs/icon/instagram.svg')}}" alt="Instagram">
                     </button>
                 </div>
