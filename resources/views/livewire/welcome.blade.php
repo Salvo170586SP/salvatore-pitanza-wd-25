@@ -5,6 +5,7 @@
        <livewire:components-welcome.skills />
        <livewire:components-welcome.education />
        <livewire:components-welcome.projects />
+       <livewire:components-welcome.experience />
     </div>
 </div>
 
