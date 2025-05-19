@@ -21,9 +21,9 @@
         <div class="flex justify-center items-center flex-col flex-wrap lg:flex-row gap-5 mt-5 md:mt-10 px-4 md:px-0">
             {{-- card --}}
             <div
-                class="w-300 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg shadow transition-all rounded-xl bg-white">
+                class="w-100 md:w-150 lg:w-250 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-white">
                 <div
-                    class="w-[40px] h-[40px] md:w-[150px] md:h-[150px] bg-blue-500 flex justify-center items-center text-white">
+                    class="w-full h-[60px] md:w-[150px] md:h-[150px] bg-blue-500 flex justify-center items-center text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-10">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -41,9 +41,9 @@
                 </div>
             </div>
             <div
-                class="w-300 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl text-base bg-white">
+                class="w-100 md:w-150 lg:w-250 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl text-base bg-white">
                 <div
-                    class="w-[50px] h-[50px] md:w-[150px] md:h-[150px] bg-blue-500 flex justify-center items-center text-white">
+                    class="w-full h-[60px] md:w-[150px] md:h-[150px] bg-blue-500 flex justify-center items-center text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-10">
                         <path
                             d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
@@ -64,9 +64,9 @@
                 </div>
             </div>
             <div
-                class="w-300 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl text-base bg-white">
+                class="w-100 md:w-150 lg:w-250 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl text-base bg-white">
                 <div
-                    class="w-[40px] h-[40px] md:w-[150px] md:h-[150px] bg-blue-500 flex justify-center items-center text-white">
+                    class="w-full h-[60px] md:w-[150px] md:h-[150px] bg-blue-500 flex justify-center items-center text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-10">
                         <path fill-rule="evenodd"
                             d="M2.25 5.25a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3V15a3 3 0 0 1-3 3h-3v.257c0 .597.237 1.17.659 1.591l.621.622a.75.75 0 0 1-.53 1.28h-9a.75.75 0 0 1-.53-1.28l.621-.622a2.25 2.25 0 0 0 .659-1.59V18h-3a3 3 0 0 1-3-3V5.25Zm1.5 0v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5Z"
@@ -86,9 +86,9 @@
 
 
             <div
-                class="w-300 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl text-base bg-white">
+                class="w-100 md:w-150 lg:w-250 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl text-base bg-white">
                 <div
-                    class="w-[40px] h-[40px] md:w-[150px] md:h-[150px] bg-blue-500 flex justify-center items-center text-white">
+                    class="w-full h-[60px] md:w-[150px] md:h-[150px] bg-blue-500 flex justify-center items-center text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-10">
                         <path fill-rule="evenodd"
                             d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"

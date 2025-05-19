@@ -4,6 +4,7 @@
        <livewire:components-welcome.about />
        <livewire:components-welcome.skills />
        <livewire:components-welcome.education />
+       <livewire:components-welcome.projects />
     </div>
 </div>
 
