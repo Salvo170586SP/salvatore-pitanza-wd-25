@@ -9,9 +9,9 @@
                 </svg>
 
 
-                <div class="text-blue-800 font-bold">
+                <div class="font-bold">
                     Projects
-                    <span class="text-yellow-300 font-bold">Made</span>
+                    <span class="text-blue-800 font-bold">Made</span>
                 </div>
             </h2>
         </div>

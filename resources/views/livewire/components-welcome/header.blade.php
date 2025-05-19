@@ -8,7 +8,7 @@
          <!-- Navigation bar -->
          <div
          :class="{'!mx-0 !rounded-none': scrolled}"
-         class="flex flex-col md:flex-row items-center justify-between bg-white/90 backdrop-blur-md shadow-lg border rounded-xl px-3 md:px-10 py-2 mx-2 md:mx-10 lg:mx-40 transition-all duration-300">
+         class="flex flex-col md:flex-row items-center justify-between bg-white/90 backdrop-blur-md shadow-lg border rounded-lg px-3 md:px-10 py-2 mx-2 md:mx-10 lg:mx-40 transition-all duration-300">
             <div class="flex items-center justify-between w-full md:w-auto">
                 <button class="flex items-center">
                     <figure class="w-7 md:w-10 h-7 md:h-10">
@@ -132,7 +132,7 @@
 
             <figure class="w-full md:w-auto flex justify-center items-center mb-6 md:mb-0 perspective-[800px] cursor-pointer transform-style-preserve-3d transition-transform duration-300">
                 <img src="{{asset('imgs/icon/logo2.png')}}" alt="logo-jumb" 
-                    class="tilt-element w-[150px] h-[150px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] 
+                    class="tilt-element w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] 
                     transition rounded-full bg-white border drop-shadow-lg" />
             </figure>
         </div>
