@@ -338,12 +338,12 @@
                     </div>
                 </div>
             </div>
-            <div
+            <button wire:navigate href="/all-projects"
                 class="w-full cursor-pointer bg-slate-400 hover:bg-slate-600 aspect-[3/2] flex flex-col justify-center items-center hover:shadow-xl rounded-xl text-base relative transition duration-300 ease-in-out hover:-translate-y-1">
                 <div class="w-full font-bold text-lg p-4 text-center ">
                     <h3 class="text-white">Altro...</h3>
                 </div>
-            </div>
+            </button>
         </div>
     </section>
 </div>
