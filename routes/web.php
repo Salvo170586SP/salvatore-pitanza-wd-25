@@ -1,5 +1,10 @@
 <?php
 
+use App\Livewire\Admin\Projects;
+use App\Livewire\Admin\Projects\CreateProject;
+use App\Livewire\Admin\Projects\EditProject;
+use App\Livewire\Admin\Projects\IndexProjects;
+use App\Livewire\Admin\Projects\ShowProject;
 use App\Livewire\AllProjects;
 use App\Livewire\Arts;
 use App\Livewire\Documents;
@@ -23,6 +28,10 @@ Route::view('dashboard', 'dashboard')
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
+    Route::get('admin/projects', IndexProjects::class)->name('admin.projects');
+    Route::get('admin/projects/create', CreateProject::class)->name('admin.projects.create-projects');
+    Route::get('admin/projects/{project}', ShowProject::class)->name('admin.projects.show-projects');
+    Route::get('admin/projects/{project}/edit', EditProject::class)->name('admin.projects.edit-projects');
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');

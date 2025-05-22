@@ -2,12 +2,14 @@
 
 namespace App\Livewire\ComponentsWelcome;
 
+use App\Models\Admin\Project;
 use Livewire\Component;
 
 class Projects extends Component
 {
     public function render()
     {
-        return view('livewire.components-welcome.projects');
+        $projects = Project::all();
+        return view('livewire.components-welcome.projects', compact('projects'));
     }
 }

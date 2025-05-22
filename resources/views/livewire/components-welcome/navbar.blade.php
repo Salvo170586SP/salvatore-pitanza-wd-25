@@ -95,7 +95,7 @@
                         </a>
                     </li>
 
-                    {{-- <li class="mb-5 md:m-0">
+                    <li class="mb-5 md:m-0 flex   justify-center">
                         @if (Route::has('login'))
                         @auth
                         <a href="{{ url('/dashboard') }}"
@@ -116,7 +116,7 @@
                         @endif
                         @endauth
                         @endif
-                    </li> --}}
+                    </li>
                 </ul>
 
             </nav>
