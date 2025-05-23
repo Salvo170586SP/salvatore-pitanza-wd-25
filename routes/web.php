@@ -1,6 +1,8 @@
 <?php
 
-
+use App\Livewire\Admin\Biographies\CreateBiography;
+use App\Livewire\Admin\Biographies\EditBiography;
+use App\Livewire\Admin\Biographies\IndexBiography;
 use App\Livewire\Admin\Projects\CreateProject;
 use App\Livewire\Admin\Projects\EditProject;
 use App\Livewire\Admin\Projects\IndexProjects;
@@ -42,6 +44,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/trainings/{training}', ShowTrainings::class)->name('admin.show-trainings');
     Route::get('admin/trainings/{training}/edit', EditTrainings::class)->name('admin.edit-trainings');
 
+    Route::get('admin/biographies', IndexBiography::class)->name('admin.biographies');
+    Route::get('admin/biographies/create', CreateBiography::class)->name('admin.create-biographies');
+    Route::get('admin/biographies/{user}/edit', EditBiography::class)->name('admin.edit-biographies');
+    
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');

@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Livewire\ComponentsWelcome;
+namespace App\Livewire\Admin\Biographies;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class About extends Component
+class IndexBiography extends Component
 {
     public function render()
     {
-        $biographies = \App\Models\User::select('description', 'img_url', 'img_name')
+        $biographies = User::select('description', 'img_url', 'img_name')
             ->whereNotNull('description')
             ->whereNotNull('img_url')
             ->whereNotNull('img_name')
@@ -17,7 +19,8 @@ class About extends Component
                     ->where('img_url', '!=', '')
                     ->where('img_name', '!=', '');
             })
-            ->get(); 
-        return view('livewire.components-welcome.about', compact('biographies'));
+            ->get();
+
+        return view('livewire.admin.biographies.index-biography', compact('biographies'));
     }
 }

@@ -23,6 +23,9 @@
                 <flux:navlist.item icon="academic-cap" :href="route('admin.trainings')"
                     :current="request()->routeIs('admin.trainings')" wire:navigate>{{ __('Trainings') }}
                 </flux:navlist.item>
+                <flux:navlist.item icon="chat-bubble-bottom-center-text" :href="route('admin.biographies')" :current="request()->routeIs('admin.biographies')" wire:navigate>{{
+                    __('Biographies') }}
+                </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
 
@@ -121,7 +124,7 @@
     </flux:header>
 
     {{ $slot }}
-    @fluxScripts 
+    @fluxScripts
 </body>
 
 </html>
