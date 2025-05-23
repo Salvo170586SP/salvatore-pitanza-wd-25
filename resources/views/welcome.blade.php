@@ -21,7 +21,7 @@
             scroll-behavior: smooth;
         }
     </style>
-   {{--  <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Gestione smooth scroll per i link anchor
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {

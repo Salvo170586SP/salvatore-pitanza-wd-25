@@ -4,7 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\Admin\Education;
 use App\Models\Admin\Project;
+use App\Models\Admin\Training;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -64,4 +66,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
+    
+    public function trainings()
+    {
+        return $this->hasMany(Training::class);
+    }
 }
+ 

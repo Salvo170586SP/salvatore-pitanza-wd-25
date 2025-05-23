@@ -5,16 +5,13 @@
     </div>
     @endif
 
-
-
     <div class="w-full h-full px-3 text-black">
         <div class="max-w-full mx-5 p-5 bg-white rounded-lg">
-
             <div class="bg-white flex items-center justify-between mb-5">
                 <div class="text-gray-900">
-                    <h3 class="text-[#080808] flex items-center text-lg font-bold uppercase">Projects <div
+                    <h3 class="text-[#080808] flex items-center text-lg font-bold uppercase">Trainings <div
                             class="flex items-center justify-center rounded-md ms-2 bg-gray-200 w-[35px] h-[35px] text-[#276D80] text-[13px] font-bold">
-                            {{$projects->count()}}
+                            {{$trainings->count()}}
                         </div>
                     </h3>
                 </div>
@@ -23,67 +20,56 @@
             </div>
 
             <div class="h-[66px] flex items-center justify-end">
-                <button wire:navigate href="/admin/projects/create"
+                <button wire:navigate href="/admin/trainings/create"
                     class="cursor-pointer flex justify-center items-center rounded-md w-[200px] h-[36px] bg-gray-500 hover:bg-gray-600 text-[15px] font-semibold text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5 ms">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
-                    Add Project
+                    Add Training
                 </button>
             </div>
 
-            @if($projects->count() > 0)
+            @if($trainings->count() > 0)
             <div class="w-full overflow-hidden rounded-xl">
                 <table class="w-full border border-gray-100">
                     <thead class="bg-[#E5E5E5] text-sm text-gray-700 h-[30px]">
                         <tr>
                             <th scope="col" class="text-start ps-5">
-                                Preview
+                                Icon
                             </th>
                             <th scope="col" class="text-start">
                                 Title
                             </th>
                             <th scope="col" class="text-start">
-                                Name Img
+                                Subtitle
                             </th>
                             <th scope="col" class="text-start">
                                 Description
                             </th>
-                            <th scope="col" class="text-center pe-10">
-                                Available
-                            </th>
-                            <th scope="col" class="text-start">
-                                Url Git
-                            </th>
-                            <th scope="col" class="text-start">
-                                Url Web
-                            </th>
-
                             <th scope="col" class="text-end">
                             </th>
                         </tr>
                     </thead>
                     <tbody class="bg-[#FAFAFA]">
-                        @foreach($projects as $project)
-                        <tr class="border-b h-[55px]" wire:key="project-{{$project->id}}">
+                        @foreach($trainings as $training)
+                        <tr class="border-b h-[55px]" wire:key="training-{{$training->id}}">
                             <td>
                                 <div class="p-4">
-                                    <figure class="w-[50px] h-[50px] rounded-lg overflow-hidden">
-                                        <img src="{{ asset('storage/' . $project->img_url) }}" alt="{{$project->title}}"
-                                            class="w-full h-full rounded-lg object-cover">
-                                    </figure>
+                                    <div class="w-9 h-9 bg-gray-200 rounded-md flex items-center justify-center">
+                                        {!! $training->icon_url !!}
+                                    </div>
                                 </div>
                             </td>
                             <td>
                                 <div class="text-sm">
-                                    {{ substr($project->title , 0, 10) }}...
+                                    {{ substr($training->title , 0, 10) }}...
                                 </div>
                             </td>
                             <td>
                                 <div class="text-sm">
-                                    @if($project->img_name)
-                                    {{ substr($project->img_name , 0, 10) }}...
+                                    @if($training->subtitle)
+                                    {{ substr($training->subtitle , 0, 10) }}...
                                     @else
                                     -
                                     @endif
@@ -91,52 +77,16 @@
                             </td>
                             <td>
                                 <div class="text-sm">
-                                    @if($project->description)
-                                    {{ substr($project->description , 0, 20) }}...
+                                    @if($training->description)
+                                    {{ substr($training->description , 0, 20) }}...
                                     @else
                                     -
                                     @endif
                                 </div>
                             </td>
-                            <td class="pe-10">
-                                <div class="w-full flex justify-center items-center">
-                                    @if($project->is_aviable)
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="size-6 text-green-600">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                    </svg>
-                                    @else
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="size-6 text-red-600">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                    </svg>
-                                    @endif
-                                </div>
-                            </td>
-                            <td>
-                                <div class="text-sm">
-                                    @if($project->url_git)
-                                    {{ substr($project->url_git , 0, 20) }}...
-                                    @else
-                                    -
-                                    @endif
-                                </div>
-                            </td>
-                            <td>
-                                <div class="text-sm">
-                                    @if($project->url_web)
-                                    {{ substr($project->url_web , 0, 20) }}...
-                                    @else
-                                    -
-                                    @endif
-                                </div>
-                            </td>
-
                             <td>
                                 <div class="flex items-center justify-end">
-                                    <button wire:navigate href="/admin/projects/{{$project->id}}"
+                                    <button wire:navigate href="/admin/trainings/{{$training->id}}"
                                         class="cursor-pointer p-2 rounded-md shadow text-white bg-slate-400 hover:bg-slate-700 flex justify-center items-center me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -144,7 +94,7 @@
                                                 d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
                                         </svg>
                                     </button>
-                                    <button wire:navigate href="/admin/projects/{{$project->id}}/edit"
+                                    <button wire:navigate href="/admin/trainings/{{$training->id}}/edit"
                                         class="cursor-pointer p-2 rounded-md shadow text-white bg-gray-500 hover:bg-gray-700 flex justify-center items-center me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -153,7 +103,7 @@
                                         </svg>
 
                                     </button>
-                                    <button onclick="Livewire.dispatch('openModal', { component: 'admin.projects.delete-project', arguments: {projectId: {{$project->id }}}})"
+                                    <button onclick="Livewire.dispatch('openModal', { component: 'admin.trainings.delete-trainings', arguments: {trainingId: {{$training->id }}}})"
                                         class="cursor-pointer p-2 rounded-md shadow text-white bg-red-500 hover:bg-red-700 flex justify-center items-center me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -170,11 +120,11 @@
 
             </div>
             <div class="py-3">
-                {{ $projects->links() }}
+                {{ $trainings->links() }}
             </div>
             @else
             <div class="py-4 text-center">
-                don't have any projects
+                don't have any trainings
             </div>
             @endif
         </div>
