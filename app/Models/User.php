@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\Admin\Drawing;
 use App\Models\Admin\Education;
 use App\Models\Admin\Experience;
 use App\Models\Admin\Project;
@@ -79,6 +80,11 @@ class User extends Authenticatable
     public function experiences()
     {
         return $this->hasMany(Experience::class);
+    }
+  
+    public function drawings()
+    {
+        return $this->hasMany(Drawing::class);
     }
 }
  

@@ -82,10 +82,10 @@
                         </a>
                     </li>
                     <li class="lg:me-4 lg:mb-0 mb-4">
-                        <a @click="activeTab = 'Arts'; isOpen = false" wire:navigate href="/arts"
-                            :class="{'text-gray-500': activeTab === 'Arts'}"
+                        <a @click="activeTab = 'Drawings'; isOpen = false" wire:navigate href="/drawings"
+                            :class="{'text-gray-500': activeTab === 'Drawings'}"
                             class="cursor-pointer font-semibold hover:text-gray-500 transition-all flex items-end">
-                            Arts</a>
+                            Drawings</a>
                     </li>
                     <li>
                         <a @click="activeTab = 'documents'; isOpen = false" wire:navigate href="/documents"

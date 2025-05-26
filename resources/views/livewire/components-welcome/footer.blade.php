@@ -1,7 +1,7 @@
 <div>
     <section id="footer" class="w-full    bg-slate-900">
         <div class="container mx-auto px-4 md:py-10 font-bold w-full flex flex-col md:flex-row justify-around items-start md:items-baseline text-white space-y-8 md:space-y-0">
-            <div class="w-full md:w-1/3 text-center md:text-left text-base md:text-lg">
+            <div class="w-full md:w-1/3 text-center md:text-left text-base md:text-lg mt-5 md:mt-0">
                 Thank you for visiting my personal portfolio website. <br class="hidden md:block"> Connect with me over socials.
             </div>
 

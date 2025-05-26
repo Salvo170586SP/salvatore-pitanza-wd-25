@@ -31,6 +31,10 @@
                     :current="request()->routeIs('admin.experiences')" wire:navigate>{{
                     __('Experiences') }}
                 </flux:navlist.item>
+                <flux:navlist.item icon="pencil" :href="route('admin.drawings')"
+                    :current="request()->routeIs('admin.drawings')" wire:navigate>{{
+                    __('Drawings') }}
+                </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
 

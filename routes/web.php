@@ -3,6 +3,10 @@
 use App\Livewire\Admin\Biographies\CreateBiography;
 use App\Livewire\Admin\Biographies\EditBiography;
 use App\Livewire\Admin\Biographies\IndexBiography;
+use App\Livewire\Admin\Drawings\CreateDrawings;
+use App\Livewire\Admin\Drawings\EditDrawings;
+use App\Livewire\Admin\Drawings\IndexDrawings;
+use App\Livewire\Admin\Drawings\ShowDrawings;
 use App\Livewire\Admin\Experiences\CreateExperiences;
 use App\Livewire\Admin\Experiences\EditExperiences;
 use App\Livewire\Admin\Experiences\IndexExperiences;
@@ -16,8 +20,8 @@ use App\Livewire\Admin\Trainings\EditTrainings;
 use App\Livewire\Admin\Trainings\IndexTrainings;
 use App\Livewire\Admin\Trainings\ShowTrainings;
 use App\Livewire\AllProjects;
-use App\Livewire\Arts;
 use App\Livewire\Documents;
+use App\Livewire\Drawings;
 use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -27,7 +31,7 @@ Route::get('/', function () {
 })/* ->name('home') */;
 
 Route::get('/', Home::class)->name('home');
-Route::get('/arts', Arts::class)->name('arts');
+Route::get('/drawings', Drawings::class)->name('drawings');
 Route::get('/all-projects', AllProjects::class)->name('all-projects');
 Route::get('/documents', Documents::class)->name('documents');
 
@@ -52,6 +56,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/experiences/create', CreateExperiences::class)->name('admin.experiences.create-experience');
     Route::get('admin/experiences/{experience}', ShowExperiences::class)->name('admin.experiences.show-experience');
     Route::get('admin/experiences/{experience}/edit', EditExperiences::class)->name('admin.experiences.edit-experience');
+ 
+    Route::get('admin/drawings', IndexDrawings::class)->name('admin.drawings');
+    Route::get('admin/drawings/create', CreateDrawings::class)->name('admin.drawings.create-drawings');
+    Route::get('admin/drawings/{drawing}', ShowDrawings::class)->name('admin.drawings.show-drawings');
+    Route::get('admin/drawings/{drawing}/edit', EditDrawings::class)->name('admin.drawings.edit-drawings');
+ 
 
     Route::get('admin/biographies', IndexBiography::class)->name('admin.biographies');
     Route::get('admin/biographies/create', CreateBiography::class)->name('admin.create-biographies');

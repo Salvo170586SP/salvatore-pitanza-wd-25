@@ -10,32 +10,32 @@
                 </svg>
                 <div>
                     My
-                    <span class="text-gray-500">Arts</span>
+                    <span class="text-gray-500">Drawings</span>
                 </div>
             </h2>
-            <p class="font-medium text-sm mt-2">Creo ritratti su richiesta. Disegni realizzati con grafite e carboncino. <br>
-                * clicca l'immagine per vedere i dettagli</p>
+            <p class="font-medium text-sm mt-2">I create portraits on request. Drawings made with graphite and charcoal.
+                <br> * hover over the image to see details</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 p-4 md:p-8 w-full max-w-7xl mx-auto">
+            @forelse($drawings as $drawing)
             {{-- card --}}
-            <div
+            <div wire:key="drawing-{{$drawing->id}}"
                 class="w-full aspect-[3/2] flex flex-col justify-center items-center overflow-hidden bg-white hover:shadow-xl rounded-xl text-base relative transition duration-300 ease-in-out hover:-translate-y-1">
                 <figure class="w-full h-full">
-                    <img class="w-full h-full object-cover" src="{{asset('/imgs/progetti/Screenshot1.png')}}"
-                        alt="laravel" />
+                    <img class="w-full h-full object-cover" src="{{asset('storage/'.$drawing->img_url)}}"
+                        alt="{{$drawing->img_name}}" />
                 </figure>
+                @if($drawing->url_web)
                 <div
                     class="absolute top-0 left-0 w-full h-full bg-gray-100/70 backdrop-blur-md text-black opacity-0 hover:opacity-100 transition duration-300 ease-in-out rounded-xl flex justify-center items-center">
                     <div class="w-full font-bold text-lg p-4 text-center">
-                        <h3 class="text-blue-800 block mb-2">Progetto</h3>
                         <div class="w-full">
-                            <div class="text-sm text-gray-600 mb-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.
-
+                            <div class="text-sm text-gray-600 mb-5">
+                                Guarda sulla mia pagina IG
                             </div>
                             <div class="w-full flex justify-center gap-2">
-                                <button
+                                <a href="{{$drawing->url_web}}" target="_blank"
                                     class="cursor-pointer flex items-center bg-gray-500 hover:bg-gray-600 px-5 py-2 text-sm text-white font-medium rounded-lg"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-5 me-1">
@@ -44,14 +44,19 @@
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                     </svg>
-                                    Vedi</button>
+                                    Vedi</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
-
-
+            @empty
+            <div class="col-span-1 sm:col-span-2 lg:col-span-3 text-center">
+                <p class="text-gray-500">Non ci sono disegni disponibili al momento.</p>
+            </div>
+            @endforelse
         </div>
     </div>
+    <livewire:components-welcome.footer />
 </div>
