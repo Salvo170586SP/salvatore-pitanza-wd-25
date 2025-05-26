@@ -5,23 +5,22 @@
     </div>
     @endif
 
-    <div class="w-full h-full px-3 text-black">
-        <div class="max-w-full mx-5 p-5 bg-white rounded-lg">
-            <div class="bg-white flex items-center justify-between mb-5">
-                <div class="text-gray-900">
-                    <h3 class="text-[#080808] flex items-center text-lg font-bold uppercase">Trainings <div
-                            class="flex items-center justify-center rounded-md ms-2 bg-gray-200 w-[35px] h-[35px] text-[#276D80] text-[13px] font-bold">
-                            {{$trainings->count()}}
-                        </div>
-                    </h3>
-                </div>
-                <input type="text" class="rounded-lg bg-gray-100 hover:bg-gray-200 h-[37px] w-[380px] text-md px-2"
+    <div class="w-full h-full px-3 text-black dark:text-white">
+        <div class="max-w-full mx-5 p-5 rounded-lg">
+            <div class="flex items-center justify-between mb-5">
+                <h3 class="flex items-center text-lg font-bold uppercase">Trainings <div
+                        class="flex items-center justify-center rounded-md ms-2 bg-gray-200 w-[35px] h-[35px] text-[#276D80]  dark:text-white dark:bg-[#474747] text-[13px] font-bold">
+                        {{$trainings->count()}}
+                    </div>
+                </h3>
+
+                <input type="text" class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-[#474747] hover:dark:bg-[#505050] h-[37px] w-[380px] text-md px-2"
                     placeholder="Search..." wire:model.live="search">
             </div>
 
             <div class="h-[66px] flex items-center justify-end">
                 <button wire:navigate href="/admin/trainings/create"
-                    class="cursor-pointer flex justify-center items-center rounded-md w-[200px] h-[36px] bg-gray-500 hover:bg-gray-600 text-[15px] font-semibold text-white">
+                    class="cursor-pointer flex justify-center items-center rounded-md w-[200px] h-[36px] bg-gray-500 hover:bg-gray-600 dark:bg-[#474747] hover:dark:bg-[#505050] text-[15px] font-semibold text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5 ms">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -32,8 +31,8 @@
 
             @if($trainings->count() > 0)
             <div class="w-full overflow-hidden rounded-xl">
-                <table class="w-full border border-gray-100">
-                    <thead class="bg-[#E5E5E5] text-sm text-gray-700 h-[30px]">
+                <table class="w-full border border-gray-100 dark:border-0">
+                    <thead class="bg-[#E5E5E5] text-sm text-gray-700 dark:bg-[#474747] dark:text-white h-[30px]">
                         <tr>
                             <th scope="col" class="text-start ps-5">
                                 Icon
@@ -51,12 +50,12 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-[#FAFAFA]">
+                    <tbody class="bg-[#FAFAFA] dark:bg-[#222222]">
                         @foreach($trainings as $training)
-                        <tr class="border-b h-[55px]" wire:key="training-{{$training->id}}">
+                        <tr class="border-b dark:border-[#3d3d3d] h-[55px]" wire:key="training-{{$training->id}}">
                             <td>
                                 <div class="p-4">
-                                    <div class="w-9 h-9 bg-gray-200 rounded-md flex items-center justify-center">
+                                    <div class="w-9 h-9 bg-gray-200 p-1 dark:bg-[#474747] rounded-md flex items-center justify-center">
                                         {!! $training->icon_url !!}
                                     </div>
                                 </div>
@@ -87,7 +86,7 @@
                             <td>
                                 <div class="flex items-center justify-end">
                                     <button wire:navigate href="/admin/trainings/{{$training->id}}"
-                                        class="cursor-pointer p-2 rounded-md shadow text-white bg-slate-400 hover:bg-slate-700 flex justify-center items-center me-2">
+                                        class="cursor-pointer p-2 rounded-md shadow text-white bg-slate-400 hover:bg-slate-700 dark:bg-[#474747] hover:dark:bg-[#505050] flex justify-center items-center me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -95,7 +94,7 @@
                                         </svg>
                                     </button>
                                     <button wire:navigate href="/admin/trainings/{{$training->id}}/edit"
-                                        class="cursor-pointer p-2 rounded-md shadow text-white bg-gray-500 hover:bg-gray-700 flex justify-center items-center me-2">
+                                        class="cursor-pointer p-2 rounded-md shadow text-white bg-gray-500 hover:bg-gray-700 dark:bg-[#474747] hover:dark:bg-[#505050] flex justify-center items-center me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -103,8 +102,9 @@
                                         </svg>
 
                                     </button>
-                                    <button onclick="Livewire.dispatch('openModal', { component: 'admin.trainings.delete-trainings', arguments: {trainingId: {{$training->id }}}})"
-                                        class="cursor-pointer p-2 rounded-md shadow text-white bg-red-500 hover:bg-red-700 flex justify-center items-center me-2">
+                                    <button
+                                        onclick="Livewire.dispatch('openModal', { component: 'admin.trainings.delete-trainings', arguments: {trainingId: {{$training->id }}}})"
+                                        class="cursor-pointer p-2 rounded-md shadow text-white bg-red-500 hover:bg-red-700 dark:bg-red-700 hover:dark:bg-red-800 flex justify-center items-center me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">
                                             <path stroke-linecap="round" stroke-linejoin="round"

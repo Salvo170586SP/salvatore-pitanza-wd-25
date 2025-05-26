@@ -1,10 +1,10 @@
 <div>
-    <div class="w-full relative px-3 text-black">
-        <div class="max-w-full mx-5 p-5 bg-white rounded-lg">
-            <div class="h-[66px] flex items-center justify-between border-b mb-10">
-                <h3 class="text-gray-900 text-lg font-bold uppercase">Biography / Create</h3>
+    <div class="w-full relative px-3 text-black dark:text-white">
+        <div class="max-w-full mx-5 p-5">
+            <div class="h-[66px] flex items-center justify-between mb-10">
+                <h3 class="text-lg font-bold uppercase">Biography / Create</h3>
                 <button wire:navigate href="/admin/biographies"
-                    class="flex justify-around items-center rounded-md shadow py-2 px-5 bg-gray-400 hover:bg-gray-600 cursor-pointer text-white">
+                    class="flex justify-around items-center rounded-md shadow py-2 px-5 bg-gray-400 hover:bg-gray-600 dark:bg-[#505050] dark:hover:bg-[#585858] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 me-2">
                         <path fill-rule="evenodd"
                             d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z"
@@ -38,7 +38,7 @@
                        imageUrl = URL.createObjectURL($event.target.files[0])
                       ">
                             <div
-                                class="w-full h-[37px] rounded-md bg-gray-400 group-hover:bg-gray-600 text-white flex items-center justify-center px-5 shadow">
+                                class="w-full h-[37px] rounded-md bg-gray-400 group-hover:bg-gray-600 dark:bg-[#505050] dark:group-hover:bg-[#585858] text-white flex items-center justify-center px-5 shadow">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
                                     fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -57,7 +57,7 @@
                     <div class="flex flex-col justify-between items-start">
                         <label for="description">Description *</label>
                         <textarea wire:model="description" id="description" rows="15"
-                            class="w-full border shadow p-1 rounded-lg  text-md"></textarea>
+                            class="w-full border shadow p-1 rounded-lg dark:border-[#505050] dark:bg-[#505050] text-md"></textarea>
                     </div>
                     @error('description')
                     <small class="text-red-500">{{ $message }}</small>
@@ -66,11 +66,11 @@
             </div>
             <div class="w-full flex justify-end items-center mt-5">
                 <button type="button" @click="fileName = ''; imageUrl = ''" wire:click="resetForm"
-                    class="cursor-pointer  flex justify-center items-center rounded-md shadow w-[190px] h-[36px] bg-gray-400 hover:bg-gray-600 text-[15px] font-semibold text-white me-3">
+                    class="cursor-pointer  flex justify-center items-center rounded-md shadow w-[190px] h-[36px] bg-gray-400 hover:bg-gray-600 dark:bg-[#505050] dark:hover:bg-[#585858] text-[15px] font-semibold text-white me-3">
                     Cancel
                 </button>
                 <button wire:click="createBiography"
-                    class="cursor-pointer flex justify-center items-center rounded-md shadow w-[190px] h-[36px] bg-blue-400 hover:bg-blue-600 text-[15px] font-semibold text-white">
+                    class="cursor-pointer flex justify-center items-center rounded-md shadow w-[190px] h-[36px] bg-blue-400 hover:bg-blue-600 dark:bg-blue-700 text-[15px] font-semibold text-white">
                     Add
                 </button>
             </div>
