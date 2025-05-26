@@ -17,14 +17,19 @@
             <flux:navlist.group :heading="__('Platform')" class="grid">
                 <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
                     wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                <flux:navlist.item icon="briefcase" :href="route('admin.projects')"
+                <flux:navlist.item icon="chat-bubble-bottom-center-text" :href="route('admin.biographies')"
+                    :current="request()->routeIs('admin.biographies')" wire:navigate>{{
+                    __('Biographies') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="code-bracket-square" :href="route('admin.projects')"
                     :current="request()->routeIs('admin.projects')" wire:navigate>{{ __('Projects') }}
                 </flux:navlist.item>
                 <flux:navlist.item icon="academic-cap" :href="route('admin.trainings')"
                     :current="request()->routeIs('admin.trainings')" wire:navigate>{{ __('Trainings') }}
                 </flux:navlist.item>
-                <flux:navlist.item icon="chat-bubble-bottom-center-text" :href="route('admin.biographies')" :current="request()->routeIs('admin.biographies')" wire:navigate>{{
-                    __('Biographies') }}
+                <flux:navlist.item icon="briefcase" :href="route('admin.experiences')"
+                    :current="request()->routeIs('admin.experiences')" wire:navigate>{{
+                    __('Experiences') }}
                 </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>

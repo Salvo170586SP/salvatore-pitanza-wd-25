@@ -1,6 +1,6 @@
 <div>
     @if (session('message'))
-    <div class="bg-gray-200 border mx-8 rounded relative mb-4">
+    <div class="bg-gray-200 border dark:bg-[#474747] dark:border-0 mx-8 rounded relative mb-4">
         <span class="block p-5">{{ session('message') }}</span>
     </div>
     @endif
@@ -39,13 +39,15 @@
                     <img src="{{asset('storage/'.$biography->img_url) }}" alt="{{ $biography->img_name }}"
                         class="w-full h-full object-cover">
                 </figure>
-                <div class="bg-slate-50 dark:border-[#505050] dark:bg-[#505050] shadow p-5 rounded-xl w-full">{{ $biography->description }}</div>
+                <div class="bg-slate-50 dark:border-[#505050] dark:bg-[#505050] shadow p-5 rounded-xl w-full">{{
+                    $biography->description }}</div>
                 @empty
                 <figure class="w-[600px] h-[400px] shadow bg-white rounded-xl overflow-hidden">
                     <img src="https://png.pngtree.com/png-vector/20220609/ourmid/pngtree-person-gray-photo-placeholder-man-silhouette-on-gray-background-png-image_4847624.png"
                         alt="placeholder" class="w-full h-full object-cover">
                 </figure>
-                <div class="bg-slate-50 dark:border-[#505050] dark:bg-[#505050] shadow p-5 rounded-xl w-full flex justify-center items-center">
+                <div
+                    class="bg-slate-50 dark:border-[#505050] dark:bg-[#505050] shadow p-5 rounded-xl w-full flex justify-center items-center">
                     Write a
                     biography</div>
                 @endforelse

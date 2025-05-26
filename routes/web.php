@@ -3,6 +3,10 @@
 use App\Livewire\Admin\Biographies\CreateBiography;
 use App\Livewire\Admin\Biographies\EditBiography;
 use App\Livewire\Admin\Biographies\IndexBiography;
+use App\Livewire\Admin\Experiences\CreateExperiences;
+use App\Livewire\Admin\Experiences\EditExperiences;
+use App\Livewire\Admin\Experiences\IndexExperiences;
+use App\Livewire\Admin\Experiences\ShowExperiences;
 use App\Livewire\Admin\Projects\CreateProject;
 use App\Livewire\Admin\Projects\EditProject;
 use App\Livewire\Admin\Projects\IndexProjects;
@@ -43,6 +47,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/trainings/create', CreateTrainings::class)->name('admin.create-trainings');
     Route::get('admin/trainings/{training}', ShowTrainings::class)->name('admin.show-trainings');
     Route::get('admin/trainings/{training}/edit', EditTrainings::class)->name('admin.edit-trainings');
+
+    Route::get('admin/experiences', IndexExperiences::class)->name('admin.experiences');
+    Route::get('admin/experiences/create', CreateExperiences::class)->name('admin.experiences.create-experience');
+    Route::get('admin/experiences/{experience}', ShowExperiences::class)->name('admin.experiences.show-experience');
+    Route::get('admin/experiences/{experience}/edit', EditExperiences::class)->name('admin.experiences.edit-experience');
 
     Route::get('admin/biographies', IndexBiography::class)->name('admin.biographies');
     Route::get('admin/biographies/create', CreateBiography::class)->name('admin.create-biographies');

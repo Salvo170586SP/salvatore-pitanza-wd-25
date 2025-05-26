@@ -17,28 +17,41 @@
             </h2>
             <p class="font-medium text-sm mt-2">Le mie principali esperienze lavorative e azioni dedite al sociale</p>
         </div>
-        <div
-            class="flex justify-center items-center flex-col flex-wrap lg:flex-row  mt-5 md:mt-10 px-4 md:px-0">
+        <div class="flex justify-center items-center flex-col flex-wrap lg:flex-row  mt-5 md:mt-10 px-4 md:px-0">
+            @forelse($experiences->take(5) as $experience)
             {{-- card --}}
             <div class="flex flex-col justify-center items-center">
                 <div
                     class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden bg-gray-50 flex flex-col border md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl">
                     <div class="w-full my-2 px-5">
-                        <p class="text-xl font-bold">Laravel-Livewire Developer</p>
-                        <p class="text-md font-bold">Algomera</p>
+                        <p class="text-xl font-bold">@if($experience->title){{$experience->title}}@endif</p>
+                        <p class="text-md font-bold">@if($experience->subtitle){{$experience->subtitle}}@endif</p>
                         <p class="font-medium text-sm md:text-md">
-                            Laravel Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vitae iste dolorem
-                            laborum
-                            molestiae optio in omnis accusantium suscipit sint facere fuga maxime voluptatum
-                            perspiciatis
-                            sapiente, deserunt mollitia iure ex.
+                            @if($experience->description){{$experience->description}}@endif
+                        </p>
+                    </div>
+                </div>
+                @if(!$loop->last)
+                <div class="w-1 h-8 bg-gray-600"></div>
+                @endif
+            </div>
+            @empty
+
+            <div class="flex flex-col justify-center items-center">
+                <div
+                    class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden bg-gray-50 flex flex-col border md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl">
+                    <div class="w-full my-2 px-5">
+                        <p class="text-xl font-bold">Non sono presenti esperienze</p>
+                        <p class="font-medium text-sm md:text-md">
+                            Non sono presenti esperienze lavorative o azioni dedite al sociale.
                         </p>
                     </div>
                 </div>
                 <div class="w-1 h-8 bg-gray-600"></div>
             </div>
+            @endforelse
 
-            <div class="flex flex-col justify-center items-center">
+            {{-- <div class="flex flex-col justify-center items-center">
                 <div
                     class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden  flex flex-col md:flex-row border justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-gray-50">
                     <div class="w-full my-2 px-5">
@@ -54,9 +67,9 @@
                     </div>
                 </div>
                 <div class="w-1 h-8 bg-gray-600"></div>
-            </div>
+            </div> --}}
 
-            <div class="flex flex-col justify-center items-center">
+            {{-- <div class="flex flex-col justify-center items-center">
                 <div
                     class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden  flex flex-col md:flex-row border justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-gray-50">
                     <div class="w-full my-2 px-5">
@@ -72,9 +85,9 @@
                     </div>
                 </div>
                 <div class="w-1 h-8 bg-gray-600"></div>
-            </div>
+            </div> --}}
 
-            <div class="flex flex-col justify-center items-center">
+            {{-- <div class="flex flex-col justify-center items-center">
                 <div
                     class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden flex flex-col md:flex-row border justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-gray-50">
                     <div class="w-full my-2 px-5">
@@ -89,9 +102,9 @@
                     </div>
                 </div>
                 <div class="w-1 h-8 bg-gray-600"></div>
-            </div>
+            </div> --}}
 
-            <div class="flex flex-col justify-center items-center">
+            {{-- <div class="flex flex-col justify-center items-center">
                 <div
                     class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250  overflow-hidden flex flex-col md:flex-row border justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-gray-50">
                     <div class="w-full my-2 px-5">
@@ -106,7 +119,7 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 </div>

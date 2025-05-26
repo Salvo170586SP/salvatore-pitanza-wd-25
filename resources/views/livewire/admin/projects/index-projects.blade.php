@@ -1,6 +1,6 @@
 <div>
     @if (session('message'))
-    <div class="bg-gray-200 border mx-8 rounded relative mb-4">
+    <div class="bg-gray-200 border dark:bg-[#474747] dark:border-0 mx-8 rounded relative mb-4">
         <span class="block p-5">{{ session('message') }}</span>
     </div>
     @endif

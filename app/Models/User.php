@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Models\Admin\Education;
+use App\Models\Admin\Experience;
 use App\Models\Admin\Project;
 use App\Models\Admin\Training;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -73,6 +74,11 @@ class User extends Authenticatable
     public function trainings()
     {
         return $this->hasMany(Training::class);
+    }
+ 
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
     }
 }
  

@@ -5,7 +5,7 @@
        <livewire:components-welcome.skills />
        <livewire:components-welcome.trainings />
        <livewire:components-welcome.projects />
-       <livewire:components-welcome.experience />
+       <livewire:components-welcome.experiences />
        <livewire:components-welcome.footer />
     </div>
 </div>
