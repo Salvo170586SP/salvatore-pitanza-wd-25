@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Drawings;
 
 use App\Models\Admin\Drawing;
+use Illuminate\Support\Facades\Storage;
 use LivewireUI\Modal\ModalComponent;
 
 class DeleteDrawings extends ModalComponent
@@ -21,6 +22,7 @@ class DeleteDrawings extends ModalComponent
             $drawing = Drawing::findOrFail($this->drawingId);
 
             if ($drawing) {
+                Storage::disk('public')->delete($drawing->img_url);
                 $drawing->delete();
             }
 

@@ -2,12 +2,15 @@
 
 namespace App\Livewire;
 
+use App\Models\Admin\Document;
 use Livewire\Component;
 
 class Documents extends Component
 {
     public function render()
     {
-        return view('livewire.documents')->layout('layouts.app');
+        $documents = Document::all();
+
+        return view('livewire.documents', compact('documents'))->layout('layouts.app');
     }
 }

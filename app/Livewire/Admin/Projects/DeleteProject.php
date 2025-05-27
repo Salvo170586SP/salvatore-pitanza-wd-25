@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Projects;
 
 use App\Models\Admin\Project;
+use Illuminate\Support\Facades\Storage;
 use LivewireUI\Modal\ModalComponent;
 
 class DeleteProject extends ModalComponent
@@ -21,6 +22,7 @@ class DeleteProject extends ModalComponent
             $project = Project::findOrFail($this->projectId);
 
             if ($project) {
+                Storage::disk('public')->delete($project->img_url);
                 $project->delete();
             }
 

@@ -3,6 +3,10 @@
 use App\Livewire\Admin\Biographies\CreateBiography;
 use App\Livewire\Admin\Biographies\EditBiography;
 use App\Livewire\Admin\Biographies\IndexBiography;
+use App\Livewire\Admin\Documents\CreateDocument;
+use App\Livewire\Admin\Documents\EditDocument;
+use App\Livewire\Admin\Documents\IndexDocuments;
+use App\Livewire\Admin\Documents\ShowDocument;
 use App\Livewire\Admin\Drawings\CreateDrawings;
 use App\Livewire\Admin\Drawings\EditDrawings;
 use App\Livewire\Admin\Drawings\IndexDrawings;
@@ -61,6 +65,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/drawings/create', CreateDrawings::class)->name('admin.drawings.create-drawings');
     Route::get('admin/drawings/{drawing}', ShowDrawings::class)->name('admin.drawings.show-drawings');
     Route::get('admin/drawings/{drawing}/edit', EditDrawings::class)->name('admin.drawings.edit-drawings');
+    
+    Route::get('admin/documents', IndexDocuments::class)->name('admin.documents');
+    Route::get('admin/documents/create', CreateDocument::class)->name('admin.documents.create-document');
+    Route::get('admin/documents/{document}', ShowDocument::class)->name('admin.documents.show-document');
+    Route::get('admin/documents/{document}/edit', EditDocument::class)->name('admin.documents.edit-document');
  
 
     Route::get('admin/biographies', IndexBiography::class)->name('admin.biographies');
