@@ -15,6 +15,11 @@
             </h2>
         </div>
         <div class="flex justify-center items-center flex-col lg:flex-row text-center gap-5 px-4 md:px-0">
+            @if($biographies->isEmpty())
+            <div class="text-gray-600 font-medium">
+                <p class="text-medium">No biographies available at the moment.</p>
+            </div>
+            @else
             @foreach($biographies as $biography)
             <figure class="w-[350px] h-[350px] md:w-[350px] md:h-[350px] lg:h-[400px] lg:w-[400px] lg:me-20">
                 <img src="@if($biography->img_url){{asset('storage/'. $biography->img_url)}} @else https://savefumisteria.it/wp-content/uploads/2023/09/placeholder-711.png @endif"
@@ -23,7 +28,7 @@
             </figure>
             <div
                 class="w-full md:w-2/3 lg:w-1/3 flex flex-col justify-center items-center text-justify text-sm lg:text-base mt-5 lg:mt-0 px-4 md:px-0">
-                <p>
+                <p class="font-semibold">
                     @if($biography->description)
                     {!! $biography->description !!}
                     @else
@@ -31,7 +36,7 @@
                     @endif
                 </p>
                 <div class="w-full my-4 md:my-5 lg:mt-10">
-                    <button
+                    <button  wire:navigate href="/documents"
                         class="bg-[#002057] w-[180px] md:w-[200px] flex items-center justify-center md:mx-0 text-white rounded-xl font-semibold px-4 md:px-6 py-2 md:py-3 cursor-pointer transition shadow-[#002057] shadow hover:shadow-md text-sm md:text-base">Resume
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-5 ms-3">
@@ -41,6 +46,7 @@
                 </div>
             </div>
             @endforeach
+            @endif
         </div>
     </section>
 </div>

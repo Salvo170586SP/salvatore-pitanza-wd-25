@@ -66,4 +66,6 @@
         <p class="text-gray-500 text-center text-lg">Don't have upload documents</p>
         @endif
     </div>
+        <livewire:components-welcome.footer />
+     <livewire:components-welcome.scroll-to-top />
 </div>

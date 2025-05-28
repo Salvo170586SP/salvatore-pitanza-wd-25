@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Experiences;
 
 use App\Models\Admin\Experience;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class EditExperiences extends Component
@@ -34,9 +35,14 @@ class EditExperiences extends Component
 
     public function editExperience()
     {
-        try {
-            $this->validate();
+        // Verifica nuovamente l'autorizzazione
+        if (Auth::check()|| $this->experience->admin_id !== Auth::id()) {
+            abort(403, 'You are not authorized');
+        }
 
+        $this->validate();
+
+        try {
             $this->experience->update([
                 'title' => $this->title,
                 'subtitle' => trim($this->subtitle) ?: null,

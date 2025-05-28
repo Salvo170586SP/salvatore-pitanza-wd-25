@@ -8,6 +8,7 @@ use Livewire\Component;
 
 class CreateTrainings extends Component
 {
+    public $user;
     public $icon_url;
     public $title;
     public $subtitle;
@@ -29,20 +30,25 @@ class CreateTrainings extends Component
     public function createTraining()
     {
         $this->validate();
+        
+        try {
+            Training::create([
+                'admin_id' => Auth::id(),
+                'icon_url' => $this->icon_url,
+                'title' => $this->title,
+                'subtitle' => trim($this->subtitle) ?: null,
+                'description' => trim($this->description) ?: null,
+            ]);
 
-        Training::create([
-            'admin_id' => Auth::id(),
-            'icon_url' => $this->icon_url,
-            'title' => $this->title,
-            'subtitle' => trim($this->subtitle) ?: null,
-            'description' => trim($this->description) ?: null,
-        ]);
+            session()->flash('message', 'Training created successfully!');
 
-        session()->flash('message', 'Training created successfully!');
+            $this->reset();
 
-        $this->reset();
-
-        $this->redirect('/admin/trainings', navigate: true);
+            $this->redirect('/admin/trainings', navigate: true);
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+            return $this->redirect('/admin/trainings', navigate: true);
+        }
     }
 
 

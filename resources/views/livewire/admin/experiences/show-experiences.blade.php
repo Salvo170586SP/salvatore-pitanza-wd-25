@@ -5,7 +5,7 @@
                 <div class="flex items-end font-bold text-lg text-center uppercase">
                     {{$experience->title}}
                 </div>
-                <button wire:navigate href="/admin/experiences"
+                <button wire:navigate href="/dashboard/experiences"
                     class="rounded-md cursor-pointer flex justify-center items-center shadow w-[200px] h-[36px] bg-gray-400 hover:bg-gray-600 dark:bg-[#474747] hover:dark:bg-[#505050] text-[15px] font-semibold text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 me-2">
                         <path fill-rule="evenodd"
@@ -17,15 +17,15 @@
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Title</div>
-                <div class="rounded-lg border dark:border-[#505050] dark:bg-[#505050] p-2">{{$experience->title ?? '-'}}</div>
+                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">{{$experience->title ?? '-'}}</div>
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Subtitle</div>
-                <div class="rounded-lg border dark:border-[#505050] dark:bg-[#505050] p-2">{{$experience->subtitle ?? '-'}}</div>
+                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">{{$experience->subtitle ?? '-'}}</div>
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Description</div>
-                <div class="rounded-lg border dark:border-[#505050] dark:bg-[#505050] p-2  h-[200px] overflow-auto break-all">@if($experience->description)
+                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2  h-[200px] overflow-auto break-all">@if($experience->description)
                     {{$experience->description}} @else <span class="text-gray-400">Descrizione non disponibile</span>
                     @endif</div>
             </div>

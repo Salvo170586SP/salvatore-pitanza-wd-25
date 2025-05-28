@@ -5,11 +5,8 @@
     </div>
     @endif
 
-
-
     <div class="w-full h-full px-3 text-black dark:text-white">
         <div class="max-w-full mx-5 p-5">
-
             <div class="flex items-center justify-between mb-5">
                 <h3 class="flex items-center text-lg font-bold uppercase">Drawings <div
                         class="flex items-center justify-center rounded-md ms-2 bg-gray-200 w-[35px] h-[35px] text-[#276D80] dark:text-white dark:bg-[#474747] text-[13px] font-bold">
@@ -17,12 +14,12 @@
                     </div>
                 </h3>
                 <input type="text"
-                    class="rounded-lg bg-gray-100 dark:bg-[#474747] hover:dark:bg-[#505050] hover:bg-gray-200  h-[37px] w-[380px] text-md px-2"
+                    class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-[#474747] hover:dark:bg-[#505050]   h-[37px] w-[380px] text-md px-2"
                     placeholder="Search..." wire:model.live="search">
             </div>
 
             <div class="h-[66px] flex items-center justify-end">
-                <button wire:navigate href="/admin/drawings/create"
+                <button wire:navigate href="/dashboard/drawings/create"
                     class="cursor-pointer flex justify-center items-center rounded-md w-[200px] h-[36px] bg-gray-500 dark:bg-[#474747] hover:dark:bg-[#505050] hover:bg-gray-600 text-[15px] font-semibold text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5 ms">
@@ -52,26 +49,26 @@
                     </thead>
                     <tbody class="bg-[#FAFAFA] dark:bg-[#222222]">
                         @foreach($drawings as $drawing)
-                        <tr class="border-b dark:border-[#3d3d3d] h-[55px]" wire:key="drawing-{{$drawing->id}}">
+                        <tr class="@if(!$loop->last) border-b @endif dark:border-[#3d3d3d] h-[55px]" wire:key="drawing-{{$drawing->id}}">
                             <td>
                                 <div class="p-4">
                                     <figure class="w-[50px] h-[50px] rounded-lg overflow-hidden">
-                                        <img src="{{ asset('storage/' . $drawing->img_url) }}" alt="{{$drawing->img_name}}"
-                                            class="w-full h-full rounded-lg object-cover">
+                                        <img src="{{ asset('storage/' . $drawing->img_url) }}"
+                                            alt="{{$drawing->img_name}}" class="w-full h-full rounded-lg object-cover">
                                     </figure>
                                 </div>
                             </td>
-                     
+
                             <td>
                                 <div class="text-sm">
                                     @if($drawing->img_name)
-                                    {{  $drawing->img_name  }} 
+                                    {{ $drawing->img_name }}
                                     @else
                                     -
                                     @endif
                                 </div>
                             </td>
-                          
+
                             <td>
                                 <div class="text-sm">
                                     @if($drawing->url_web)
@@ -84,22 +81,13 @@
 
                             <td>
                                 <div class="flex items-center justify-end">
-                                    <button wire:navigate href="/admin/drawings/{{$drawing->id}}"
-                                        class="cursor-pointer p-2 rounded-md shadow text-white bg-slate-400 dark:bg-[#474747] hover:dark:bg-[#505050] hover:bg-slate-700 flex justify-center items-center me-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="size-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-                                        </svg>
-                                    </button>
-                                    <button wire:navigate href="/admin/drawings/{{$drawing->id}}/edit"
+                                    <button wire:navigate href="/dashboard/drawings/{{$drawing->id}}/edit"
                                         class="cursor-pointer p-2 rounded-md shadow text-white bg-gray-500 dark:bg-[#474747] hover:dark:bg-[#505050] hover:bg-gray-700 flex justify-center items-center me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                         </svg>
-
                                     </button>
                                     <button
                                         onclick="Livewire.dispatch('openModal', { component: 'admin.drawings.delete-drawings', arguments: {drawingId: {{$drawing->id }}}})"

@@ -3,12 +3,13 @@
 namespace App\Livewire\Admin\Trainings;
 
 use App\Models\Admin\Training;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ShowTrainings extends Component
 {
     public $training;
-    
+
     public function mount(Training $training)
     {
         $this->training = $training;

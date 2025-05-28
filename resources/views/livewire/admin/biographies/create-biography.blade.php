@@ -3,8 +3,8 @@
         <div class="max-w-full mx-5 p-5">
             <div class="h-[66px] flex items-center justify-between mb-10">
                 <h3 class="text-lg font-bold uppercase">Biography / Create</h3>
-                <button wire:navigate href="/admin/biographies"
-                    class="flex justify-around items-center rounded-md shadow py-2 px-5 bg-gray-400 hover:bg-gray-600 dark:bg-[#505050] dark:hover:bg-[#585858] cursor-pointer">
+                <button wire:navigate href="/dashboard/biographies"
+                    class="flex justify-around items-center rounded-md shadow text-white py-2 px-5 bg-gray-400 hover:bg-gray-600 dark:bg-[#505050] dark:hover:bg-[#585858] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 me-2">
                         <path fill-rule="evenodd"
                             d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z"
@@ -23,8 +23,8 @@
                     <div class="text-sm text-gray-600">
                         <div class="space-y-2">
                             <figure class="w-[350px] h-[369px] overflow-hidden shadow-md rounded-lg">
-                                <img :src="imageUrl ? imageUrl : 'https://png.pngtree.com/png-vector/20220609/ourmid/pngtree-person-gray-photo-placeholder-man-silhouette-on-gray-background-png-image_4847624.png'"
-                                    class="w-full h-full object-cover" alt="Anteprima immagine">
+                                <img :src="imageUrl ? imageUrl : 'https://static.thenounproject.com/png/261694-200.png'"
+                                    class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50" :class="imageUrl ? 'opacity-100' : ''" alt="Anteprima immagine">
                             </figure>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                     <div class="flex flex-col justify-between items-start">
                         <label for="description">Description *</label>
                         <textarea wire:model="description" id="description" rows="15"
-                            class="w-full border shadow p-1 rounded-lg dark:border-[#505050] dark:bg-[#505050] text-md"></textarea>
+                            class="w-full border shadow p-1 rounded-lg dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] bg-gray-100 hover:bg-gray-200 text-md"></textarea>
                     </div>
                     @error('description')
                     <small class="text-red-500">{{ $message }}</small>

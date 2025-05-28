@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Drawings;
 
 use App\Models\Admin\Drawing;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use LivewireUI\Modal\ModalComponent;
 
@@ -17,10 +18,13 @@ class DeleteDrawings extends ModalComponent
 
     public function deleteDrawing()
     {
+        $drawing = Drawing::findOrFail($this->drawingId);
+        // Verifica nuovamente l'autorizzazione
+        if (!Auth::check() || $drawing->admin_id !== Auth::id()) {
+            abort(403, 'You are not authorized');
+        }
+
         try {
-
-            $drawing = Drawing::findOrFail($this->drawingId);
-
             if ($drawing) {
                 Storage::disk('public')->delete($drawing->img_url);
                 $drawing->delete();

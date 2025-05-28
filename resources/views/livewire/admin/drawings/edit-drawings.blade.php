@@ -3,7 +3,7 @@
         <div class="max-w-full mx-5 p-5">
             <div class="h-[66px] flex items-center justify-between mb-10">
                 <h3 class="text-lg font-bold uppercase">Drawing / Edit</h3>
-                <button wire:navigate href="/admin/drawings"
+                <button wire:navigate href="/dashboard/drawings"
                     class="flex justify-around items-center dark:bg-[#474747] hover:dark:bg-[#505050] rounded-md shadow py-2 px-5 bg-gray-400 hover:bg-gray-600 cursor-pointer text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 me-2">
                         <path fill-rule="evenodd"
@@ -20,9 +20,9 @@
                 class="h-[290px] flex flex-col items-center justify-center mb-10">
                 <div class="text-sm text-gray-600">
                     <div class="space-y-2">
-                        <figure class="w-[250px] h-[250px] overflow-hidden shadow-md rounded-lg">
-                            <img :src="imageUrl ? imageUrl : '{{ $img_url ?? 'https://savefumisteria.it/wp-content/uploads/2023/09/placeholder-711.png' }}'"
-                                class="w-full h-full object-cover" alt="Anteprima immagine">
+                        <figure class="w-[250px] h-[250px] overflow-hidden shadow-md">
+                            <img :src="imageUrl ? imageUrl : '{{ $img_url ?? 'https://static.thenounproject.com/png/261694-200.png' }}'"
+                                class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50 @if($img_url) opacity-100 @endif rounded-lg" alt="Anteprima immagine">
                         </figure>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="w-full h-[66px] flex flex-col  justify-between">
                     <label for="url_web">Url Web</label>
                     <input type="text" wire:model="url_web" id="url_web"
-                        class="border px-1 border-[#D8D5D5] dark:border-[#505050] dark:bg-[#505050] rounded h-[37px] w-full text-md">
+                        class="bg-gray-100 hover:bg-gray-200 px-1 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded h-[37px] w-full text-md">
                 </div>
                 @error('url_web')
                 <small class="text-red-500">{{ $message }}</small>

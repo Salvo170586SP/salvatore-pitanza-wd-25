@@ -28,18 +28,23 @@ class CreateExperiences extends Component
     {
         $this->validate();
 
-        Experience::create([
-            'admin_id' => Auth::id(),
-            'title' => $this->title,
-            'subtitle' => trim($this->subtitle) ?: null,
-            'description' => trim($this->description) ?: null,
-        ]);
+        try {
+            Experience::create([
+                'admin_id' => Auth::id(),
+                'title' => $this->title,
+                'subtitle' => trim($this->subtitle) ?: null,
+                'description' => trim($this->description) ?: null,
+            ]);
 
-        session()->flash('message', 'Experience created successfully!');
+            session()->flash('message', 'Experience created successfully!');
 
-        $this->reset();
+            $this->reset();
 
-        $this->redirect('/admin/experiences', navigate: true);
+            $this->redirect('/admin/experiences', navigate: true);
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+            return $this->redirect('/admin/experiences', navigate: true);
+        }
     }
 
     public function render()

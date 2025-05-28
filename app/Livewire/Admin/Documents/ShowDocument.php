@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Documents;
 
 use App\Models\Admin\Document;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class ShowDocument extends Component
 {

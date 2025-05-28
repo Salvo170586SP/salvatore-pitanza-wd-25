@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Experiences;
 
 use App\Models\Admin\Experience;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
@@ -19,13 +20,23 @@ class DeleteExperience extends ModalComponent
     {
         $experience = Experience::find($this->experienceId);
 
-        if ($experience) {
-            $experience->delete();
+        // Verifica nuovamente l'autorizzazione
+        if (!Auth::check() || $experience->admin_id !== Auth::id()) {
+            abort(403, 'You are not authorized');
         }
 
-        $this->dispatch('closeModal');
-        session()->flash('message', 'Experience deleted successfully!');
-        $this->redirect('/admin/experiences', navigate: true);
+        try {
+            if ($experience) {
+                $experience->delete();
+            }
+
+            $this->dispatch('closeModal');
+            session()->flash('message', 'Experience deleted successfully!');
+            $this->redirect('/admin/experiences', navigate: true);
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+            return $this->redirect('/admin/experiences', navigate: true);
+        }
     }
 
     public function render()

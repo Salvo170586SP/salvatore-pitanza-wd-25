@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Trainings;
 
 use App\Models\Admin\Training;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class EditTrainings extends Component
@@ -37,9 +38,14 @@ class EditTrainings extends Component
 
     public function editTraining()
     {
-        try {
-            $this->validate();
+        // Verifica nuovamente l'autorizzazione
+        if (!Auth::check() || $this->training->admin_id !== Auth::id()) {
+            abort(403, 'You are not authorized');
+        }
 
+        $this->validate();
+
+        try {
             $this->training->update([
                 'icon_url' => $this->icon_url,
                 'title' => $this->title,

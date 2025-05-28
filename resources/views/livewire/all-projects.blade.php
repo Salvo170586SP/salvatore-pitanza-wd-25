@@ -91,4 +91,5 @@
         </div>
     </div>
     <livewire:components-welcome.footer />
+    <livewire:components-welcome.scroll-to-top />
 </div>

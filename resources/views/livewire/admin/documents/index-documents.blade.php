@@ -22,7 +22,7 @@
             </div>
 
             <div class="h-[66px] flex items-center justify-end">
-                <button wire:navigate href="/admin/documents/create"
+                <button wire:navigate href="/dashboard/documents/create"
                     class="cursor-pointer flex justify-center items-center rounded-md w-[200px] h-[36px] bg-gray-500 dark:bg-[#474747] hover:dark:bg-[#505050] hover:bg-gray-600 text-[15px] font-semibold text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5 ms">
@@ -55,7 +55,7 @@
                     </thead>
                     <tbody class="bg-[#FAFAFA] dark:bg-[#222222]">
                         @foreach($documents as $document)
-                        <tr class="border-b dark:border-[#3d3d3d] h-[55px]" wire:key="project-{{$document->id}}">
+                        <tr class="@if(!$loop->last) border-b @endif dark:border-[#3d3d3d] h-[55px]" wire:key="project-{{$document->id}}">
                             <td>
                                 @if(strtolower(pathinfo($document->img_url, PATHINFO_EXTENSION) === 'pdf'))
                                 <div
@@ -100,7 +100,7 @@
                             </td>
                             <td>
                                 <div class="flex items-center justify-end">
-                                    <button wire:navigate href="/admin/documents/{{$document->id}}"
+                                    <button wire:navigate href="/dashboard/documents/{{$document->id}}"
                                         class="cursor-pointer p-2 rounded-md shadow text-white bg-slate-400 dark:bg-[#474747] hover:dark:bg-[#505050] hover:bg-slate-700 flex justify-center items-center me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -108,7 +108,7 @@
                                                 d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
                                         </svg>
                                     </button>
-                                    <button wire:navigate href="/admin/documents/{{$document->id}}/edit"
+                                    <button wire:navigate href="/dashboard/documents/{{$document->id}}/edit"
                                         class="cursor-pointer p-2 rounded-md shadow text-white bg-gray-500 dark:bg-[#474747] hover:dark:bg-[#505050] hover:bg-gray-700 flex justify-center items-center me-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">

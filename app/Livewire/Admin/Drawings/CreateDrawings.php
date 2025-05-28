@@ -30,26 +30,31 @@ class CreateDrawings extends Component
     {
         $this->validate();
 
-        $url = null;
-        if ($this->img_url) {
-            $url = $this->img_url->store('drawings', 'public');
-            $name_img = $this->img_url->getClientOriginalName();
+        try {
+            $url = null;
+            if ($this->img_url) {
+                $url = $this->img_url->store('drawings', 'public');
+                $name_img = $this->img_url->getClientOriginalName();
+            }
+
+            Drawing::create([
+                'admin_id' => Auth::id(),
+                'img_url' => $url,
+                'img_name' => $name_img,
+                'url_web' => trim($this->url_web) ?: null,
+            ]);
+
+            session()->flash('message', 'Drawing created successfully.');
+
+            $this->reset();
+
+            return $this->redirect('/admin/drawings', navigate: true);
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+            return $this->redirect('/admin/drawings', navigate: true);
         }
-
-        Drawing::create([
-            'admin_id' => Auth::id(),
-            'img_url' => $url,
-            'img_name' => $name_img,
-            'url_web' => trim($this->url_web) ?: null,
-        ]);
-
-        session()->flash('message', 'Drawing created successfully.');
-
-        $this->reset();
-
-        return $this->redirect('/admin/drawings', navigate: true);
     }
-    
+
     public function render()
     {
         return view('livewire.admin.drawings.create-drawings');

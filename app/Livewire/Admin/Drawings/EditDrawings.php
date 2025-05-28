@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Drawings;
 
 use App\Models\Admin\Drawing;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -40,35 +41,45 @@ class EditDrawings extends Component
 
     public function editDrawing()
     {
-        $this->validate();
-
-        // Gestione dell'immagine
-        $url = $this->drawing->img_url;  // Mantiene l'URL esistente come default
-        $name_img = $this->drawing->img_name;  // Mantiene il nome esistente come default
-
-        // Se è stata caricata una nuova immagine
-        if ($this->img_url && !is_string($this->img_url)) {
-            // Se esiste già un'immagine, la eliminiamo
-            if ($this->drawing->img_url) {
-                Storage::disk('public')->delete($this->drawing->img_url);
-            }
-
-            // Salva la nuova immagine
-            $name_img = $this->img_url->getClientOriginalName();
-            $url = $this->img_url->store('drawings', 'public');
+        // Verifica nuovamente l'autorizzazione
+        if (!Auth::check() || $this->drawing->admin_id !== Auth::id()) {
+            throw new \Exception('You are not authorized');
         }
 
-        $this->drawing->update([
-            'img_url' => $url,
-            'img_name' => $name_img,
-            'url_web' => trim($this->url_web) ?: null,
-        ]);
+        $this->validate();
 
-        session()->flash('message', 'Drawing updated successfully.');
+        try {
+            // Gestione dell'immagine
+            $url = $this->drawing->img_url;  // Mantiene l'URL esistente come default
+            $name_img = $this->drawing->img_name;  // Mantiene il nome esistente come default
 
-        return $this->redirect('/admin/drawings', navigate: true);
+            // Se è stata caricata una nuova immagine
+            if ($this->img_url && !is_string($this->img_url)) {
+                // Se esiste già un'immagine, la eliminiamo
+                if ($this->drawing->img_url) {
+                    Storage::disk('public')->delete($this->drawing->img_url);
+                }
+
+                // Salva la nuova immagine
+                $name_img = $this->img_url->getClientOriginalName();
+                $url = $this->img_url->store('drawings', 'public');
+            }
+
+            $this->drawing->update([
+                'img_url' => $url,
+                'img_name' => $name_img,
+                'url_web' => trim($this->url_web) ?: null,
+            ]);
+
+            session()->flash('message', 'Drawing updated successfully.');
+
+            return $this->redirect('/admin/drawings', navigate: true);
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+            return $this->redirect('/admin/drawings', navigate: true);
+        }
     }
-    
+
     public function render()
     {
         return view('livewire.admin.drawings.edit-drawings');

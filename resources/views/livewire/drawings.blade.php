@@ -14,7 +14,8 @@
                 </div>
             </h2>
             <p class="font-medium text-sm mt-2">I create portraits on request. Drawings made with graphite and charcoal.
-                <br> * hover over the image to see details</p>
+                <br> * hover over the image to see details
+            </p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 p-4 md:p-8 w-full max-w-7xl mx-auto">
@@ -59,4 +60,5 @@
         </div>
     </div>
     <livewire:components-welcome.footer />
+    <livewire:components-welcome.scroll-to-top />
 </div>

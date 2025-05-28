@@ -24,7 +24,7 @@ class CreateDocument extends Component
 
     public function resetForm()
     {
-        $this->reset(['img_url', 'url_web', 'title', 'description']);
+        $this->reset(['img_url', 'title', 'description']);
         $this->dispatch('form-reset');
     }
 
@@ -34,7 +34,7 @@ class CreateDocument extends Component
         if (!$this->img_url) {
             return false;
         }
-         
+
         $extension = pathinfo($this->img_url, PATHINFO_EXTENSION);
         return strtolower($extension) === 'pdf';
     }
@@ -43,25 +43,30 @@ class CreateDocument extends Component
     {
         $this->validate();
 
-        $url = null;
-        if ($this->img_url) {
-            $url = $this->img_url->store('documents', 'public');
-            $name_img = $this->img_url->getClientOriginalName();
+        try {
+            $url = null;
+            if ($this->img_url) {
+                $url = $this->img_url->store('documents', 'public');
+                $name_img = $this->img_url->getClientOriginalName();
+            }
+
+            Document::create([
+                'admin_id' => Auth::id(),
+                'title' => trim($this->title) ?: null,
+                'img_url' => $url,
+                'img_name' => $name_img,
+                'description' => trim($this->description) ?: null,
+            ]);
+
+            session()->flash('message', 'Document created successfully.');
+
+            $this->reset();
+
+            return $this->redirect('/admin/documents', navigate: true);
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+            return $this->redirect('/admin/documents', navigate: true);
         }
-
-        Document::create([
-            'admin_id' => Auth::id(),
-            'title' => trim($this->title) ?: null,
-            'img_url' => $url,
-            'img_name' => $name_img,
-            'description' => trim($this->description) ?: null,
-        ]);
-
-        session()->flash('message', 'Document created successfully.');
-
-        $this->reset();
-
-        return $this->redirect('/admin/documents', navigate: true);
     }
 
     public function render()

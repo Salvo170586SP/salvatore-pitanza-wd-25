@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Projects;
 
 use App\Models\Admin\Project;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
@@ -52,37 +53,47 @@ class EditProject extends Component
 
     public function editProject()
     {
-        $this->validate();
-
-        // Gestione dell'immagine
-        $url = $this->project->img_url;  // Mantiene l'URL esistente come default
-        $name_img = $this->project->img_name;  // Mantiene il nome esistente come default
-
-        // Se è stata caricata una nuova immagine
-        if ($this->img_url && !is_string($this->img_url)) {
-            // Se esiste già un'immagine, la eliminiamo
-            if ($this->project->img_url) {
-                Storage::disk('public')->delete($this->project->img_url);
-            }
-
-            // Salva la nuova immagine
-            $name_img = $this->img_url->getClientOriginalName();
-            $url = $this->img_url->store('progetti', 'public');
+        // Verifica nuovamente l'autorizzazione
+        if (!Auth::check() || $this->project->admin_id !== Auth::id()) {
+            abort(403, 'You are not authorized');
         }
 
-        $this->project->update([
-            'title' => $this->title,
-            'description' => trim($this->description) ?: null,
-            'img_url' => $url,
-            'img_name' => $name_img,
-            'url_git' => trim($this->url_git) ?: null,
-            'url_web' => trim($this->url_web) ?: null,
-            'is_aviable' => $this->is_aviable,
-        ]);
-
-        session()->flash('message', 'Project updated successfully.');
+        $this->validate();
         
-        return $this->redirect('/admin/projects', navigate: true);
+        try {
+            // Gestione dell'immagine
+            $url = $this->project->img_url;  // Mantiene l'URL esistente come default
+            $name_img = $this->project->img_name;  // Mantiene il nome esistente come default
+
+            // Se è stata caricata una nuova immagine
+            if ($this->img_url && !is_string($this->img_url)) {
+                // Se esiste già un'immagine, la eliminiamo
+                if ($this->project->img_url) {
+                    Storage::disk('public')->delete($this->project->img_url);
+                }
+
+                // Salva la nuova immagine
+                $name_img = $this->img_url->getClientOriginalName();
+                $url = $this->img_url->store('progetti', 'public');
+            }
+
+            $this->project->update([
+                'title' => $this->title,
+                'description' => trim($this->description) ?: null,
+                'img_url' => $url,
+                'img_name' => $name_img,
+                'url_git' => trim($this->url_git) ?: null,
+                'url_web' => trim($this->url_web) ?: null,
+                'is_aviable' => $this->is_aviable,
+            ]);
+
+            session()->flash('message', 'Project updated successfully.');
+
+            return $this->redirect('/admin/projects', navigate: true);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            $this->dispatch('validation-error', $e->validator->errors()->first());
+            return;
+        }
     }
 
     public function render()

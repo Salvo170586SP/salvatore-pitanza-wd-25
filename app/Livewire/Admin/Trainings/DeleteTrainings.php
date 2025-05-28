@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Trainings;
 
 use App\Models\Admin\Training;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
@@ -18,14 +19,23 @@ class DeleteTrainings extends ModalComponent
     public function deleteTraining()
     {
         $training = Training::find($this->trainingId);
-
-        if ($training) {
-            $training->delete();
+        // Verifica nuovamente l'autorizzazione
+        if (!Auth::check() || $training->admin_id !== Auth::id()) {
+           abort(403, 'You are not authorized');
         }
-        
-        $this->dispatch('closeModal');
-        session()->flash('message', 'Training deleted successfully!');
-        $this->redirect('/admin/trainings', navigate: true);
+
+        try {
+            if ($training) {
+                $training->delete();
+            }
+
+            $this->dispatch('closeModal');
+            session()->flash('message', 'Training deleted successfully!');
+            $this->redirect('/admin/trainings', navigate: true);
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+            return $this->redirect('/admin/trainings', navigate: true);
+        }
     }
 
     public function render()

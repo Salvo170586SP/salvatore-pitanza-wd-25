@@ -12,7 +12,7 @@
                 </h3>
                 <div class="h-[66px] flex items-center justify-end">
                     @if(!$biographies->count() > 0)
-                    <button wire:navigate href="/admin/biographies/create"
+                    <button wire:navigate href="/dashboard/biographies/create"
                         class="cursor-pointer flex justify-center items-center rounded-md w-[200px] h-[36px] bg-gray-500 hover:bg-gray-600 dark:bg-[#474747] hover:dark:bg-[#505050] text-[15px] font-semibold text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-5 ms">
@@ -21,7 +21,7 @@
                         Add Biography
                     </button>
                     @else
-                    <button wire:navigate href="/admin/biographies/{{auth()->user()->id}}/edit"
+                    <button wire:navigate href="/dashboard/biographies/{{auth()->user()->id}}/edit"
                         class="cursor-pointer flex justify-evenly items-center rounded-md w-[180px] h-[36px] bg-blue-500 hover:bg-blue-600 dark:bg-blue-700 text-[15px] font-semibold text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-5  ">
@@ -39,8 +39,7 @@
                     <img src="{{asset('storage/'.$biography->img_url) }}" alt="{{ $biography->img_name }}"
                         class="w-full h-full object-cover">
                 </figure>
-                <div class="bg-slate-50 dark:border-[#505050] dark:bg-[#505050] shadow p-5 rounded-xl w-full">{{
-                    $biography->description }}</div>
+                <div class="bg-slate-50 dark:border-[#505050] dark:bg-[#505050] shadow p-5 rounded-xl w-full">{!!$biography->description !!}</div>
                 @empty
                 <figure class="w-[600px] h-[400px] shadow bg-white rounded-xl overflow-hidden">
                     <img src="https://png.pngtree.com/png-vector/20220609/ourmid/pngtree-person-gray-photo-placeholder-man-silhouette-on-gray-background-png-image_4847624.png"

@@ -1,13 +1,12 @@
 <div>
-    <header x-data="{ isOpen: false, activeTab: 'home', scrolled: false }" x-init="
-        if (window.location.pathname === '/arts') activeTab = 'Arts';
-        if (window.location.pathname === '/all-projects') activeTab = 'Projects';
-        if (window.location.pathname === '/documents') activeTab = 'documents';
-    " {{-- x-init="window.addEventListener('scroll', () => { scrolled = window.pageYOffset > 30 })" --}} {{--
-        :class="{'!py-1 px-6 -mx-6 -my-1': scrolled}" --}}
+    <header x-data="{ isOpen: false, activeTab: window.location.pathname === '/all-projects' ? 'Projects' : (window.location.pathname === '/documents' ? 'documents' : (window.location.pathname === '/drawings' ? 'Drawings' : 'home'))}" x-init="
+        $watch('activeTab', value => {
+            console.log('Active tab changed:', value);
+        });
+    " 
         class="fixed top-0 left-0 right-0 px-3 py-2 z-50 lg:-mx-20 transition-all duration-300 ">
         <!-- Navigation bar -->
-        <div {{-- :class="{'!mx-0 !rounded-none': scrolled}" --}}
+        <div
             class=" flex flex-col lg:flex-row items-center justify-between bg-white/90 backdrop-blur-md shadow-lg border rounded-lg px-3 md:px-10 py-2 mx-2 md:mx-10 lg:mx-40 transition-all duration-300">
             <div class="flex items-center justify-between w-full">
                 <button class="flex items-center">
@@ -76,7 +75,7 @@
 
                     <li class="lg:me-4 lg:mb-0 mb-4">
                         <a @click="activeTab = 'Projects'; isOpen = false" wire:navigate href="/all-projects"
-                            :class="{'text-gray-500': activeTab === 'projects'}"
+                            :class="{'text-gray-500': activeTab === 'Projects'}"
                             class="cursor-pointer font-semibold  hover:text-gray-500 transition-all flex items-center">
                             Projects
                         </a>
@@ -95,7 +94,7 @@
                         </a>
                     </li>
 
-                    <li class="mb-5 md:m-0 flex   justify-center">
+                    {{-- <li class="mb-5 md:m-0 flex   justify-center">
                         @if (Route::has('login'))
                         @auth
                         <a href="{{ url('/dashboard') }}"
@@ -116,7 +115,7 @@
                         @endif
                         @endauth
                         @endif
-                    </li>
+                    </li> --}}
                 </ul>
 
             </nav>

@@ -4,13 +4,13 @@
             <div class="flex items-center justify-center">
                 @isset($project->img_url)
                 <figure class="w-[350px] h-[300px] cursor-pointer" wire:click="$toggle('showImagePreview')">
-                    <img class="w-full h-full rounded-lg border dark:border-[#505050] dark:bg-[#505050] object-cover"
+                    <img class="w-full h-full rounded-lg border dark:border-[#505050] dark:bg-[#505050] object-cover object-top"
                         src="{{ asset('/storage/'.$project->img_url)}}" alt="{{$project->title}}">
                 </figure>
                 @else
                 <figure class="w-[350px] h-[300px] cursor-pointer" wire:click="$toggle('showImagePreview')">
                     <img class="w-full h-full rounded-lg border dark:border-[#505050] dark:bg-[#505050]"
-                        src="https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg"
+                        src="https://static.thenounproject.com/png/261694-200.png"
                         alt="{{$project->title}}">
                 </figure>
                 @endisset
@@ -21,8 +21,8 @@
             <div class="fixed inset-0 flex items-center justify-center z-50" wire:click="$toggle('showImagePreview')">
                 <div class="absolute inset-0 bg-black opacity-50"></div>
                 <div class="relative z-10">
-                    <img class="max-w-3xl max-h-[80vh] rounded-lg"
-                        src="{{ isset($project->img_url) ? asset('/storage/'.$project->img_url) : 'https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg' }}"
+                    <img class="max-w-3xl max-h-[80vh] rounded-lg object-top"
+                        src="{{ isset($project->img_url) ? asset('/storage/'.$project->img_url) : 'https://static.thenounproject.com/png/261694-200.png' }}"
                         alt="{{$project->title}}">
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <div class="font-bold text-lg text-center uppercase">
                     {{$project->title}}
                 </div>
-                <button wire:navigate href="/admin/projects"
+                <button wire:navigate href="/dashboard/projects"
                     class="rounded-md cursor-pointer flex justify-center items-center shadow w-[200px] h-[36px] bg-gray-400 hover:bg-gray-600 dark:bg-[#474747] hover:dark:bg-[#505050] text-[15px] font-semibold text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 me-2">
                         <path fill-rule="evenodd"
@@ -46,19 +46,19 @@
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Title</div>
-                <div class="rounded-lg dark:border-[#505050] dark:bg-[#505050] border p-2">{{$project->title ?? '-'}}</div>
+                <div class="rounded-lg dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] bg-gray-100 hover:bg-gray-200 p-2">{{$project->title ?? '-'}}</div>
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Img Name</div>
-                <div class="rounded-lg border dark:border-[#505050] dark:bg-[#505050] p-2">{{$project->img_name ?? '-'}}</div>
+                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">{{$project->img_name ?? '-'}}</div>
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Url Git</div>
-                <div class="rounded-lg border dark:border-[#505050] dark:bg-[#505050] p-2">{{$project->url_git ?? '-'}}</div>
+                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">{{$project->url_git ?? '-'}}</div>
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Url Web</div>
-                <div class="rounded-lg border dark:border-[#505050] dark:bg-[#505050] p-2">{{$project->url_web ?? '-'}}</div>
+                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">{{$project->url_web ?? '-'}}</div>
             </div>
             <div class="flex items-center w-full mb-5">
                 <div class="font-bold me-2">Aviable</div>
@@ -78,7 +78,7 @@
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Description</div>
-                <div class="rounded-lg border p-2 dark:border-[#505050] dark:bg-[#505050]  h-[300px] overflow-auto break-all">@if($project->description)
+                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 p-2 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] h-[300px] overflow-auto break-all">@if($project->description)
                     {{$project->description}} @else <span class="text-gray-400">Descrizione non disponibile</span>
                     @endif</div>
             </div>

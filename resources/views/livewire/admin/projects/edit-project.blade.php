@@ -3,7 +3,7 @@
         <div class="max-w-full mx-5 p-5">
             <div class="h-[66px] flex items-center justify-between mb-10">
                 <h3 class="text-lg font-bold uppercase">Project / Edit</h3>
-                <button wire:navigate href="/admin/projects"
+                <button wire:navigate href="/dashboard/projects"
                     class="flex justify-around items-center rounded-md shadow py-2 px-5 bg-gray-400 hover:bg-gray-600 dark:bg-[#474747] hover:dark:bg-[#505050] cursor-pointer text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 me-2">
                         <path fill-rule="evenodd"
@@ -20,9 +20,9 @@
                 class="h-[290px] flex flex-col items-center justify-center mb-10">
                 <div class="text-sm text-gray-600">
                     <div class="space-y-2">
-                        <figure class="w-[250px] h-[250px] overflow-hidden shadow-md rounded-lg">
-                            <img :src="imageUrl ? imageUrl : '{{ $img_url ?? 'https://savefumisteria.it/wp-content/uploads/2023/09/placeholder-711.png' }}'"
-                                class="w-full h-full object-cover" alt="Anteprima immagine">
+                        <figure class="w-[250px] h-[250px] overflow-hidden shadow-md">
+                            <img :src="imageUrl ? imageUrl : '{{ $img_url ?? 'https://static.thenounproject.com/png/261694-200.png' }}'"
+                                class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50 @if($img_url) opacity-100 @endif rounded-lg" alt="Anteprima immagine">
                         </figure>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="w-full h-[66px] flex flex-col justify-between">
                         <label for="title">Title*</label>
                         <input type="text" wire:model="title" id="title"
-                            class="border border-[#D8D5D5] dark:border-[#505050] dark:bg-[#505050] px-1 rounded h-[37px] w-full text-md">
+                            class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
                     </div>
                     @error('title')
                     <small class="text-red-500">{{ $message }}</small>
@@ -68,7 +68,7 @@
                     <div class="w-full h-[66px] flex flex-col justify-between">
                         <label for="url_git">Url Git</label>
                         <input type="text" wire:model="url_git" id="url_git"
-                            class="border border-[#D8D5D5] dark:border-[#505050] dark:bg-[#505050] px-1 rounded h-[37px] w-full text-md">
+                            class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
                     </div>
                     @error('url_git')
                     <small class="text-red-500">{{ $message }}</small>
@@ -80,7 +80,7 @@
                     <div class="w-full h-[66px] flex flex-col  justify-between">
                         <label for="url_web">Url Web</label>
                         <input type="text" wire:model="url_web" id="url_web"
-                            class="border border-[#D8D5D5] dark:border-[#505050] dark:bg-[#505050] px-1 rounded h-[37px] w-full text-md">
+                            class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
                     </div>
                     @error('url_web')
                     <small class="text-red-500">{{ $message }}</small>
@@ -91,7 +91,7 @@
                 <div class=" flex flex-col justify-between">
                     <label for="description">Description</label>
                     <textarea wire:model="description" id="description" rows="5"
-                        class="border border-[#D8D5D5] dark:border-[#505050] dark:bg-[#505050] rounded px-1 text-md"></textarea>
+                        class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded px-1 text-md"></textarea>
                 </div>
                 @error('description')
                 <small class="text-red-500">{{ $message }}</small>
@@ -100,7 +100,7 @@
 
             <div class="h-[66px] flex items-center">
                 <input type="checkbox" wire:model="is_aviable" id="is_aviable" @if($is_aviable==1) checked @endif
-                    class="border border-[#D8D5D5] h-[20px] w-[20px] me-2 text-md accent-black dark:accent-[#505050] cursor-pointer">
+                    class="border border-[#D8D5D5] h-[20px] w-[20px] me-2 text-md accent-black dark:accent-[#505050] dark:hover:bg-[#5e5e5e] cursor-pointer">
                 <label for="is_aviable">Available</label>
             </div>
 

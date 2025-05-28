@@ -17,14 +17,19 @@ class EditBiography extends Component
     public $img_url;
     public $img_name;
 
-
     protected $rules = [
-        'description' => 'string|max:2000',
+        'description' => 'required|string|min:10|max:2000',
         'img_url' => 'required',
     ];
 
+
     public function mount(User $user)
     {
+        // Verifichiamo che l'utente sia autenticato e sia l'admin del documento
+        if (!Auth::check() || $user->id !== Auth::id()) {
+            abort(403, 'You are not authorized');
+        }
+
         $this->user = $user;
         $this->description = $user->description;
         $this->img_name = $user->img_name;
@@ -40,39 +45,50 @@ class EditBiography extends Component
         $this->dispatch('form-reset');
     }
 
-    public function createBiography()
+    public function editBiography()
     {
-        $this->validate();
-
-        // Gestione dell'immagine
-        $url = $this->user->img_url;  // Mantiene l'URL esistente come default
-        $name_img = $this->user->img_name;  // Mantiene il nome esistente come default
-
-        // Se è stata caricata una nuova immagine
-        if ($this->img_url && !is_string($this->img_url)) {
-            // Se esiste già un'immagine, la eliminiamo
-            if ($this->user->img_url) {
-                Storage::disk('public')->delete($this->user->img_url);
-            }
-
-            // Salva la nuova immagine
-            $name_img = $this->img_url->getClientOriginalName();
-            $url = $this->img_url->store('imgs_profile', 'public');
+        // Verifica nuovamente l'autorizzazione
+        if (!Auth::check() || $this->user->id !== Auth::id()) {
+            abort(403, 'You are not authorized');
         }
 
+        $this->validate();
 
-        $this->user->update([
-            'description' => trim($this->description) ?: null,
-            'img_url' => $url,
-            'img_name' => $name_img,
-        ]);
+        try {
+            // Gestione dell'immagine
+            $url = $this->user->img_url;  // Mantiene l'URL esistente come default
+            $name_img = $this->user->img_name;  // Mantiene il nome esistente come default
 
-        session()->flash('message', 'Biography edit successfully.');
+            // Se è stata caricata una nuova immagine
+            if ($this->img_url && !is_string($this->img_url)) {
+                $this->validate([
+                    'img_url' => 'image|max:2048|mimes:jpg,jpeg,png,gif'
+                ]);
 
-        $this->reset();
+                // Se esiste già un'immagine, la eliminiamo
+                if ($this->user->img_url) {
+                    Storage::disk('public')->delete($this->user->img_url);
+                }
 
-        return $this->redirect('/admin/biographies', navigate: true);
+                // Salva la nuova immagine
+                $name_img = $this->img_url->getClientOriginalName();
+                $url = $this->img_url->store('imgs_profile', 'public');
+            }
+
+            $this->user->update([
+                'description' => trim($this->description) ?: null,
+                'img_url' => $url,
+                'img_name' => $name_img,
+            ]);
+
+            session()->flash('message', 'Biografia aggiornata con successo.');
+            return $this->redirect('/admin/biographies', navigate: true);
+        } catch (\Exception $e) {
+            session()->flash('error', 'Si è verificato un errore durante l\'aggiornamento della biografia: ' . $e->getMessage());
+            return null;
+        }
     }
+
     public function render()
     {
         return view('livewire.admin.biographies.edit-biography');
