@@ -42,7 +42,7 @@
                 <div class="bg-slate-50 dark:border-[#505050] dark:bg-[#505050] shadow p-5 rounded-xl w-full">{!!$biography->description !!}</div>
                 @empty
                 <figure class="w-[600px] h-[400px] shadow bg-white rounded-xl overflow-hidden">
-                    <img src="https://png.pngtree.com/png-vector/20220609/ourmid/pngtree-person-gray-photo-placeholder-man-silhouette-on-gray-background-png-image_4847624.png"
+                    <img src="https://static.thenounproject.com/png/261694-200.png"
                         alt="placeholder" class="w-full h-full object-cover">
                 </figure>
                 <div

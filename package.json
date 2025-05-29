@@ -10,6 +10,7 @@
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.4",
         "bootstrap-icons": "^1.13.1",
+        "chart.js": "^4.4.9",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^1.0",
         "particles.js": "^2.0.0",

@@ -3,6 +3,7 @@
 use App\Livewire\Admin\Biographies\CreateBiography;
 use App\Livewire\Admin\Biographies\EditBiography;
 use App\Livewire\Admin\Biographies\IndexBiography;
+use App\Livewire\Admin\Dashboard\IndexDashboard;
 use App\Livewire\Admin\Documents\CreateDocument;
 use App\Livewire\Admin\Documents\EditDocument;
 use App\Livewire\Admin\Documents\IndexDocuments;
@@ -40,40 +41,42 @@ Route::get('/all-projects', AllProjects::class)->name('all-projects');
 Route::get('/documents', Documents::class)->name('documents');
 
 
-Route::view('dashboard', 'dashboard')
+/* Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('dashboard'); */
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::redirect('settings', 'settings/profile');
-    Route::get('dashboard/projects', IndexProjects::class)->name('admin.projects');
-    Route::get('dashboard/projects/create', CreateProject::class)->name('admin.projects.create-projects');
-    Route::get('dashboard/projects/{project}', ShowProject::class)->name('admin.projects.show-projects');
-    Route::get('dashboard/projects/{project}/edit', EditProject::class)->name('admin.projects.edit-projects');
+    Route::get('dashboard/insight', IndexDashboard::class)->name('dashboard.index-dashboard');
 
-    Route::get('dashboard/trainings', IndexTrainings::class)->name('admin.trainings');
-    Route::get('dashboard/trainings/create', CreateTrainings::class)->name('admin.create-trainings');
-    Route::get('dashboard/trainings/{training}', ShowTrainings::class)->name('admin.show-trainings');
-    Route::get('dashboard/trainings/{training}/edit', EditTrainings::class)->name('admin.edit-trainings');
+    Route::get('dashboard/projects', IndexProjects::class)->name('dashboard.projects');
+    Route::get('dashboard/projects/create', CreateProject::class)->name('dashboard.projects.create-projects');
+    Route::get('dashboard/projects/{project}', ShowProject::class)->name('dashboard.projects.show-projects');
+    Route::get('dashboard/projects/{project}/edit', EditProject::class)->name('dashboard.projects.edit-projects');
 
-    Route::get('dashboard/experiences', IndexExperiences::class)->name('admin.experiences');
-    Route::get('dashboard/experiences/create', CreateExperiences::class)->name('admin.experiences.create-experience');
-    Route::get('dashboard/experiences/{experience}', ShowExperiences::class)->name('admin.experiences.show-experience');
-    Route::get('dashboard/experiences/{experience}/edit', EditExperiences::class)->name('admin.experiences.edit-experience');
+    Route::get('dashboard/trainings', IndexTrainings::class)->name('dashboard.trainings');
+    Route::get('dashboard/trainings/create', CreateTrainings::class)->name('dashboard.create-trainings');
+    Route::get('dashboard/trainings/{training}', ShowTrainings::class)->name('dashboard.show-trainings');
+    Route::get('dashboard/trainings/{training}/edit', EditTrainings::class)->name('dashboard.edit-trainings');
+
+    Route::get('dashboard/experiences', IndexExperiences::class)->name('dashboard.experiences');
+    Route::get('dashboard/experiences/create', CreateExperiences::class)->name('dashboard.experiences.create-experience');
+    Route::get('dashboard/experiences/{experience}', ShowExperiences::class)->name('dashboard.experiences.show-experience');
+    Route::get('dashboard/experiences/{experience}/edit', EditExperiences::class)->name('dashboard.experiences.edit-experience');
  
-    Route::get('dashboard/drawings', IndexDrawings::class)->name('admin.drawings');
-    Route::get('dashboard/drawings/create', CreateDrawings::class)->name('admin.drawings.create-drawings');
-    Route::get('dashboard/drawings/{drawing}/edit', EditDrawings::class)->name('admin.drawings.edit-drawings');
+    Route::get('dashboard/drawings', IndexDrawings::class)->name('dashboard.drawings');
+    Route::get('dashboard/drawings/create', CreateDrawings::class)->name('dashboard.drawings.create-drawings');
+    Route::get('dashboard/drawings/{drawing}/edit', EditDrawings::class)->name('dashboard.drawings.edit-drawings');
     
-    Route::get('dashboard/documents', IndexDocuments::class)->name('admin.documents');
-    Route::get('dashboard/documents/create', CreateDocument::class)->name('admin.documents.create-document');
-    Route::get('dashboard/documents/{document}', ShowDocument::class)->name('admin.documents.show-document');
-    Route::get('dashboard/documents/{document}/edit', EditDocument::class)->name('admin.documents.edit-document');
+    Route::get('dashboard/documents', IndexDocuments::class)->name('dashboard.documents');
+    Route::get('dashboard/documents/create', CreateDocument::class)->name('dashboard.documents.create-document');
+    Route::get('dashboard/documents/{document}', ShowDocument::class)->name('dashboard.documents.show-document');
+    Route::get('dashboard/documents/{document}/edit', EditDocument::class)->name('dashboard.documents.edit-document');
  
 
-    Route::get('dashboard/biographies', IndexBiography::class)->name('admin.biographies');
-    Route::get('dashboard/biographies/create', CreateBiography::class)->name('admin.create-biographies');
-    Route::get('dashboard/biographies/{user}/edit', EditBiography::class)->name('admin.edit-biographies');
+    Route::get('dashboard/biographies', IndexBiography::class)->name('dashboard.biographies');
+    Route::get('dashboard/biographies/create', CreateBiography::class)->name('dashboard.create-biographies');
+    Route::get('dashboard/biographies/{user}/edit', EditBiography::class)->name('dashboard.edit-biographies');
     
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');

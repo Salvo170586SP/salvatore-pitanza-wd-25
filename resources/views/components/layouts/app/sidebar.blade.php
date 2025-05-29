@@ -9,34 +9,38 @@
     <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
         <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
-        <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
-            <x-app-logo />
-        </a>
+    
+        <figure
+            class="w-full md:w-auto flex items-center mb-6 md:mb-0">
+            <img src="{{asset('imgs/icon/logo2.png')}}" alt="logo-jumb" class="w-[50px] h-[50px] rounded-full bg-white border" /> 
+                   <span class="text-xl font-medium ms-3">Administration</span> 
+        </figure>
 
         <flux:navlist variant="outline">
             <flux:navlist.group :heading="__('Platform')" class="grid">
-                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
-                    wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                <flux:navlist.item icon="chat-bubble-bottom-center-text" :href="route('admin.biographies')"
-                    :current="request()->routeIs('admin.biographies')" wire:navigate>{{
+                <flux:navlist.item icon="home" :href="route('dashboard.index-dashboard')"
+                    :current="request()->routeIs('dashboard.index-dashboard')" wire:navigate>{{ __('Dashboard') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="chat-bubble-bottom-center-text" :href="route('dashboard.biographies')"
+                    :current="request()->routeIs('dashboard.biographies')" wire:navigate>{{
                     __('Biographies') }}
                 </flux:navlist.item>
-                <flux:navlist.item icon="code-bracket-square" :href="route('admin.projects')"
-                    :current="request()->routeIs('admin.projects')" wire:navigate>{{ __('Projects') }}
+                <flux:navlist.item icon="code-bracket-square" :href="route('dashboard.projects')"
+                    :current="request()->routeIs('dashboard.projects')" wire:navigate>{{ __('Projects') }}
                 </flux:navlist.item>
-                <flux:navlist.item icon="academic-cap" :href="route('admin.trainings')"
-                    :current="request()->routeIs('admin.trainings')" wire:navigate>{{ __('Trainings') }}
+                <flux:navlist.item icon="academic-cap" :href="route('dashboard.trainings')"
+                    :current="request()->routeIs('dashboard.trainings')" wire:navigate>{{ __('Trainings') }}
                 </flux:navlist.item>
-                <flux:navlist.item icon="briefcase" :href="route('admin.experiences')"
-                    :current="request()->routeIs('admin.experiences')" wire:navigate>{{
+                <flux:navlist.item icon="briefcase" :href="route('dashboard.experiences')"
+                    :current="request()->routeIs('dashboard.experiences')" wire:navigate>{{
                     __('Experiences') }}
                 </flux:navlist.item>
-                <flux:navlist.item icon="pencil" :href="route('admin.drawings')"
-                    :current="request()->routeIs('admin.drawings')" wire:navigate>{{
+                <flux:navlist.item icon="pencil" :href="route('dashboard.drawings')"
+                    :current="request()->routeIs('dashboard.drawings')" wire:navigate>{{
                     __('Drawings') }}
                 </flux:navlist.item>
-                <flux:navlist.item icon="document-duplicate" :href="route('admin.documents')"
-                    :current="request()->routeIs('admin.documents')" wire:navigate>{{
+                <flux:navlist.item icon="document-duplicate" :href="route('dashboard.documents')"
+                    :current="request()->routeIs('dashboard.documents')" wire:navigate>{{
                     __('Documents') }}
                 </flux:navlist.item>
             </flux:navlist.group>
