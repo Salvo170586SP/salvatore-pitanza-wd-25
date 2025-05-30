@@ -32,7 +32,8 @@
                         <div class="relative group">
                             <input type="file" id="image_upload" name="image_upload"
                                 class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*"
-                                wire:model="img_url" x-on:change="
+                                wire:model="img_url" 
+                                x-on:change="
                         fileName = $event.target.files[0].name;
                         imageUrl = URL.createObjectURL($event.target.files[0])
                         ">

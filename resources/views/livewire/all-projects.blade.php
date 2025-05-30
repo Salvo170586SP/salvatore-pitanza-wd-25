@@ -10,8 +10,7 @@
                         clip-rule="evenodd" />
                 </svg>
                 <div class="text-[30px] uppercase">
-                    All
-                    <span class="text-blue-600">Projects</span>
+                   My <span class='text-gray-500'>Projects</span>
                 </div>
             </h2>
         </div>

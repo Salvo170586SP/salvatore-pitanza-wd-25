@@ -62,10 +62,10 @@ class CreateDocument extends Component
 
             $this->reset();
 
-            return $this->redirect('/admin/documents', navigate: true);
+            return $this->redirect('/dashboard/documents', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
-            return $this->redirect('/admin/documents', navigate: true);
+            return $this->redirect('/dashboard/documents', navigate: true);
         }
     }
 

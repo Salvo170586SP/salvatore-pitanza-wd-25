@@ -62,10 +62,10 @@ class CreateProject extends Component
 
             $this->reset();
 
-            return $this->redirect('/admin/projects', navigate: true);
+            return $this->redirect('/dashboard/projects', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
-            return $this->redirect('/admin/projects', navigate: true);
+            return $this->redirect('/dashboard/projects', navigate: true);
         }
     }
 

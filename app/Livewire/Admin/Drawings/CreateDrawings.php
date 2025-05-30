@@ -48,10 +48,10 @@ class CreateDrawings extends Component
 
             $this->reset();
 
-            return $this->redirect('/admin/drawings', navigate: true);
+            return $this->redirect('/dashboard/drawings', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
-            return $this->redirect('/admin/drawings', navigate: true);
+            return $this->redirect('/dashboard/drawings', navigate: true);
         }
     }
 

@@ -89,7 +89,7 @@ class EditProject extends Component
 
             session()->flash('message', 'Project updated successfully.');
 
-            return $this->redirect('/admin/projects', navigate: true);
+            return $this->redirect('/dashboard/projects', navigate: true);
         } catch (\Illuminate\Validation\ValidationException $e) {
             $this->dispatch('validation-error', $e->validator->errors()->first());
             return;

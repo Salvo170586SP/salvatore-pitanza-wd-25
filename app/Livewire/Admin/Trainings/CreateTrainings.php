@@ -44,10 +44,10 @@ class CreateTrainings extends Component
 
             $this->reset();
 
-            $this->redirect('/admin/trainings', navigate: true);
+            $this->redirect('/dashboard/trainings', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
-            return $this->redirect('/admin/trainings', navigate: true);
+            return $this->redirect('/dashboard/trainings', navigate: true);
         }
     }
 

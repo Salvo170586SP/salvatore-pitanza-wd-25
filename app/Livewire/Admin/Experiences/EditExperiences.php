@@ -51,7 +51,7 @@ class EditExperiences extends Component
 
             session()->flash('message', 'Experience updated successfully!');
 
-            $this->redirect('/admin/experiences', navigate: true);
+            $this->redirect('/dashboard/experiences', navigate: true);
         } catch (\Illuminate\Validation\ValidationException $e) {
             $this->dispatch('validation-error', $e->validator->errors()->first());
             return;

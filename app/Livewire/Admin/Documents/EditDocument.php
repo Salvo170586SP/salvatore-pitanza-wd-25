@@ -88,10 +88,10 @@ class EditDocument extends Component
 
             session()->flash('message', 'Document updated successfully.');
 
-            return $this->redirect('/admin/documents', navigate: true);
+            return $this->redirect('/dashboard/documents', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
-            return $this->redirect('/admin/documents', navigate: true);
+            return $this->redirect('/dashboard/documents', navigate: true);
         }
     }
 

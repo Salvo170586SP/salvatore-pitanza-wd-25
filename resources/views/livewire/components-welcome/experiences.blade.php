@@ -11,11 +11,10 @@
                 </svg>
 
                 <div>
-                    My
-                    <span class="text-blue-600">Experience</span>
+                    My <span class='text-gray-500'>Experience</span>
                 </div>
             </h2>
-            <p class="font-medium text-sm mt-2">Le mie principali esperienze lavorative e azioni dedite al sociale</p>
+            <p class="font-medium text-sm mt-2">My main work experiences and socially dedicated actions.</p>
         </div>
         <div class="flex justify-center items-center flex-col flex-wrap lg:flex-row  mt-5 md:mt-10 px-4 md:px-0">
             @forelse($experiences->take(5) as $experience)

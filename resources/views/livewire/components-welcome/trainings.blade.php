@@ -12,11 +12,10 @@
                         d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
                 </svg>
                 <div>
-                    My
-                    <span class="text-blue-600">Trainings</span>
+                     My <span class='text-gray-500'>Trainings</span>
                 </div>
             </h2>
-            <p class="font-medium text-sm mt-2">My main instructions and actions dedicated to social issues</p>
+            <p class="font-medium text-sm mt-2">My main instructions and actions dedicated to social issues.</p>
         </div>
         <div class="flex justify-center items-center flex-col flex-wrap lg:flex-row gap-5 mt-5 px-4 md:px-0">
             @foreach ($trainings->take(4) as $training)

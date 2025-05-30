@@ -9,15 +9,14 @@
                         clip-rule="evenodd" />
                 </svg>
                 <div>
-                    About
-                    <span class="text-blue-600">Me</span>
+                   About <span class='text-gray-500'>Me</span>
                 </div>
             </h2>
         </div>
         <div class="flex justify-center items-center flex-col lg:flex-row text-center gap-5 px-4 md:px-0">
             @if($biographies->isEmpty())
             <div class="text-gray-600 font-medium">
-                <p class="text-medium">No biographies available at the moment.</p>
+                <p class="text-medium">No biography available at the moment.</p>
             </div>
             @else
             @foreach($biographies as $biography)
@@ -36,8 +35,9 @@
                     @endif
                 </p>
                 <div class="w-full my-4 md:my-5 lg:mt-10">
-                    <button  wire:navigate href="/documents"
-                        class="bg-[#002057] w-[180px] md:w-[200px] flex items-center justify-center md:mx-0 text-white rounded-xl font-semibold px-4 md:px-6 py-2 md:py-3 cursor-pointer transition shadow-[#002057] shadow hover:shadow-md text-sm md:text-base">Resume
+                    <button wire:navigate href="/documents"
+                        class="bg-[#002057] w-[180px] md:w-[200px] flex items-center justify-center md:mx-0 text-white rounded-xl font-semibold px-4 md:px-6 py-2 md:py-3 cursor-pointer transition shadow-[#002057] shadow hover:shadow-md text-sm md:text-base">
+                          Details
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-5 ms-3">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />

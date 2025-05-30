@@ -10,8 +10,7 @@
 
 
                 <div class="font-bold">
-                    Projects
-                    <span class="text-blue-800 font-bold">Made</span>
+                    Projects <span class='text-gray-500 font-bold'>Made</span>
                 </div>
             </h2>
         </div>

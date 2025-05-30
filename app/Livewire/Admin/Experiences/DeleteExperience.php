@@ -32,10 +32,10 @@ class DeleteExperience extends ModalComponent
 
             $this->dispatch('closeModal');
             session()->flash('message', 'Experience deleted successfully!');
-            $this->redirect('/admin/experiences', navigate: true);
+            $this->redirect('/dashboard/experiences', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
-            return $this->redirect('/admin/experiences', navigate: true);
+            return $this->redirect('/dashboard/experiences', navigate: true);
         }
     }
 

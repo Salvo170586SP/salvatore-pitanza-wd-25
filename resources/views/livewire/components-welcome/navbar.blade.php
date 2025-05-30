@@ -1,10 +1,11 @@
 <div>
-    <header x-data="{ isOpen: false, activeTab: window.location.pathname === '/all-projects' ? 'Projects' : (window.location.pathname === '/documents' ? 'documents' : (window.location.pathname === '/drawings' ? 'Drawings' : 'home'))}" x-init="
+    <header
+        x-data="{ isOpen: false, activeTab: window.location.pathname === '/all-projects' ? 'Projects' : (window.location.pathname === '/documents' ? 'documents' : (window.location.pathname === '/drawings' ? 'Drawings' : 'home'))}"
+        x-init="
         $watch('activeTab', value => {
             console.log('Active tab changed:', value);
         });
-    " 
-        class="fixed top-0 left-0 right-0 px-3 py-2 z-50 lg:-mx-20 transition-all duration-300 ">
+    " class="fixed top-0 left-0 right-0 px-3 py-2 z-50 lg:-mx-20 transition-all duration-300 ">
         <!-- Navigation bar -->
         <div
             class=" flex flex-col lg:flex-row items-center justify-between bg-white/90 backdrop-blur-md shadow-lg border rounded-lg px-3 md:px-10 py-2 mx-2 md:mx-10 lg:mx-40 transition-all duration-300">
@@ -37,87 +38,62 @@
             <nav class="w-full lg:flex lg:flex-row justify-center items-center">
                 <ul class="w-full hidden lg:flex lg:flex-row justify-end items-center text-base"
                     :class="{ '!flex flex-col text-start py-2 space-y-2 md:space-y-0': isOpen }">
-                    <li class="lg:me-4 lg:mb-0 mb-4">
+                    <li class="lg:me-1 lg:mb-0 mb-4">
                         <a @click="activeTab = 'home'; isOpen = false" wire:navigate.replace href="/#home"
-                            :class="{'text-gray-500': activeTab === 'home'}"
-                            class="cursor-pointer font-semibold  hover:text-gray-500 transition-all flex items-center">
-                            Home
+                            :class="{'bg-gray-100': activeTab === 'home'}"
+                            class="cursor-pointer font-semibold hover:bg-gray-100 p-2 rounded-lg transition-all flex items-center">
+                            {{ __('Home') }}
                         </a>
                     </li>
-                    <li class="lg:me-4 lg:mb-0 mb-4">
+                    <li class="lg:me-1 lg:mb-0 mb-4">
                         <a @click="activeTab = 'about'; isOpen = false" wire:navigate.replace href="/#about"
-                            :class="{' text-gray-500': activeTab === 'about'}"
-                            class="cursor-pointer font-semibold hover:text-gray-500 transition-all">About</a>
+                            :class="{'bg-gray-100': activeTab === 'about'}"
+                            class="cursor-pointer font-semibold hover:bg-gray-100 p-2 rounded-lg transition-all whitespace-nowrap">About</a>
                     </li>
-                    <li class="lg:me-4 lg:mb-0 mb-4">
+                    <li class="lg:me-1 lg:mb-0 mb-4">
                         <a @click="activeTab = 'skills'; isOpen = false" wire:navigate.replace href="/#skills"
-                            :class="{' text-gray-500': activeTab === 'skills'}"
-                            class="cursor-pointer font-semibold hover:text-gray-500 transition-all">Skills</a>
+                            :class="{'bg-gray-100': activeTab === 'skills'}"
+                            class="cursor-pointer font-semibold hover:bg-gray-100 p-2 rounded-lg transition-all">Skills</a>
                     </li>
-                    <li class="lg:me-4 mb-4 lg:mb-0">
+                    <li class="lg:me-1 mb-4 lg:mb-0">
                         <a @click="activeTab = 'education'; isOpen = false" wire:navigate.replace href="/#education"
-                            :class="{' text-gray-500': activeTab === 'education'}"
-                            class="cursor-pointer font-semibold hover:text-gray-500 transition-all">Education</a>
+                            :class="{'bg-gray-100': activeTab === 'education'}"
+                            class="cursor-pointer font-semibold hover:bg-gray-100 p-2 rounded-lg transition-all">Educations</a>
                     </li>
-                    <li class="mb-4 lg:me-4 lg:mb-0">
+                    <li class="mb-4 lg:me-1 lg:mb-0">
                         <a @click="activeTab = 'work'; isOpen = false" wire:navigate.replace href="/#work"
-                            :class="{' text-gray-500': activeTab === 'work'}"
-                            class="cursor-pointer font-semibold hover:text-gray-500 transition-all">Work</a>
+                            :class="{'bg-gray-100': activeTab === 'work'}"
+                            class="cursor-pointer font-semibold hover:bg-gray-100 p-2 rounded-lg transition-all">Works</a>
                     </li>
-                    <li class="lg:me-0 lg:mb-0 mb-4">
+                    <li class="lg:me-1 lg:mb-0 mb-4">
                         <a @click="activeTab = 'experience'; isOpen = false" wire:navigate.replace href="/#experience"
-                            :class="{' text-gray-500': activeTab === 'experience'}"
-                            class="cursor-pointer font-semibold hover:text-gray-500 transition-all">Experience</a>
+                            :class="{'bg-gray-100': activeTab === 'experience'}"
+                            class="cursor-pointer font-semibold hover:bg-gray-100 p-2 rounded-lg transition-all">Experiences</a>
                     </li>
                     <li>
                         <div class="md:w-0.5 md:h-6 bg-gray-200 md:mx-4 hidden lg:block "></div>
                     </li>
-
-                    <li class="lg:me-4 lg:mb-0 mb-4">
+                    <li class="lg:me-1 lg:mb-0 mb-4">
                         <a @click="activeTab = 'Projects'; isOpen = false" wire:navigate href="/all-projects"
-                            :class="{'text-gray-500': activeTab === 'Projects'}"
-                            class="cursor-pointer font-semibold  hover:text-gray-500 transition-all flex items-center">
+                            :class="{'bg-gray-100': activeTab === 'Projects'}"
+                            class="cursor-pointer font-semibold  hover:bg-gray-100 p-2 rounded-lg transition-all flex items-center">
                             Projects
                         </a>
                     </li>
-                    <li class="lg:me-4 lg:mb-0 mb-4">
+                    <li class="lg:me-1 lg:mb-0 mb-4">
                         <a @click="activeTab = 'Drawings'; isOpen = false" wire:navigate href="/drawings"
-                            :class="{'text-gray-500': activeTab === 'Drawings'}"
-                            class="cursor-pointer font-semibold hover:text-gray-500 transition-all flex items-end">
+                            :class="{'bg-gray-100': activeTab === 'Drawings'}"
+                            class="cursor-pointer font-semibold hover:bg-gray-100 p-2 rounded-lg transition-all flex items-end">
                             Drawings</a>
                     </li>
-                    <li>
+                    <li class="lg:me-1 lg:mb-0 mb-4">
                         <a @click="activeTab = 'documents'; isOpen = false" wire:navigate href="/documents"
-                            :class="{'text-gray-500': activeTab === 'documents'}"
-                            class="cursor-pointer font-semibold  hover:text-gray-500 transition-all flex items-center">
+                            :class="{'bg-gray-100': activeTab === 'documents'}"
+                            class="cursor-pointer font-semibold  hover:bg-gray-100 p-2 rounded-lg transition-all flex items-center">
                             Documents
                         </a>
                     </li>
-
-                    {{-- <li class="mb-5 md:m-0 flex   justify-center">
-                        @if (Route::has('login'))
-                        @auth
-                        <a href="{{ url('/dashboard') }}"
-                            class="cursor-pointer font-bold hover:underline hover:underline-offset-10 hover:text-blue-500 transition-all">
-                            Dashboard
-                        </a>
-                        @else
-                        <a href="{{ route('login') }}"
-                            class="cursor-pointer font-bold   hover:text-blue-500 transition-all border-2 border-blue-500 text-blue-500 px-5 py-2 rounded-lg">
-                            Log in
-                        </a>
-
-                        @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="cursor-pointer font-bold  px-5 py-2 rounded-lg ms-5 bg-blue-500 text-white hover:bg-blue-600 transition-all">
-                            Register
-                        </a>
-                        @endif
-                        @endauth
-                        @endif
-                    </li> --}}
                 </ul>
-
             </nav>
         </div>
     </header>

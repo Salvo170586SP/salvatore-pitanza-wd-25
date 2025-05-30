@@ -74,7 +74,7 @@ class CreateBiography extends Component
 
             $this->reset();
 
-            return $this->redirect('/admin/biographies', navigate: true);
+            return $this->redirect('/dashboard/biographies', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', 'An error occurred while processing the image.');
             return;

@@ -32,7 +32,7 @@ class DeleteDocument extends ModalComponent
 
             $this->dispatch('closeModal');
             session()->flash('message', 'Document deleted successfully!');
-            $this->redirect('/admin/documents', navigate: true);
+            $this->redirect('/dashboard/documents', navigate: true);
         } catch (\Illuminate\Validation\ValidationException $e) {
             $this->dispatch('validation-error', $e->validator->errors()->first());
             return;

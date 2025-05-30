@@ -12,13 +12,10 @@
                 </svg>
 
                 <div class="text-[30px] uppercase">
-                    My
-                    <span class="text-blue-600">Documents</span>
+                  My <span class='text-gray-500'>Documents</span>
                 </div>
             </h2>
-            <p class="font-medium text-sm mt-2">Page dedicated to my certificates and professional skills. <br>
-                Here you will find my CV, certificates and cover letter, to explore my experiences and qualifications
-                achieved.</p>
+            <p class="font-medium text-sm mt-2">Page dedicated to my CV, my certificates and my cover letter.</p>
         </div>
 
         @if($documents->count() > 0)
@@ -37,13 +34,15 @@
                             <a href="{{ asset('/storage/'.$document->img_url) }}" target="_blank"
                                 class="cursor-pointer uppercase flex items-center bg-gray-400 hover:bg-gray-600 px-5 py-2 text-sm text-white font-semibold rounded-lg">
                                 @php
-                                    $extension = pathinfo($document->img_url, PATHINFO_EXTENSION);
-                                    $isPdf = strtolower($extension) === 'pdf';
+                                $extension = pathinfo($document->img_url, PATHINFO_EXTENSION);
+                                $isPdf = strtolower($extension) === 'pdf';
                                 @endphp
-                                
+
                                 @if($isPdf)
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 me-1">
-                                    <path d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V7.875L14.25 1.5H5.625zM14.25 7.875V3L19.125 7.875H14.25z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-5 me-1">
+                                    <path
+                                        d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V7.875L14.25 1.5H5.625zM14.25 7.875V3L19.125 7.875H14.25z" />
                                 </svg>
                                 @else
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -66,6 +65,6 @@
         <p class="text-gray-500 text-center text-lg">Don't have upload documents</p>
         @endif
     </div>
-        <livewire:components-welcome.footer />
-     <livewire:components-welcome.scroll-to-top />
+    <livewire:components-welcome.footer />
+    <livewire:components-welcome.scroll-to-top />
 </div>

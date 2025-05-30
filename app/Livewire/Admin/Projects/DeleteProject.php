@@ -33,7 +33,7 @@ class DeleteProject extends ModalComponent
 
             $this->dispatch('closeModal');
             session()->flash('message', 'Project deleted successfully!');
-            $this->redirect('/admin/projects', navigate: true);
+            $this->redirect('/dashboard/projects', navigate: true);
         } catch (\Illuminate\Validation\ValidationException $e) {
             $this->dispatch('validation-error', $e->validator->errors()->first());
             return;

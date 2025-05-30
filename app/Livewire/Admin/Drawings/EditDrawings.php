@@ -73,10 +73,10 @@ class EditDrawings extends Component
 
             session()->flash('message', 'Drawing updated successfully.');
 
-            return $this->redirect('/admin/drawings', navigate: true);
+            return $this->redirect('/dashboard/drawings', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
-            return $this->redirect('/admin/drawings', navigate: true);
+            return $this->redirect('/dashboard/drawings', navigate: true);
         }
     }
 

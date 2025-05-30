@@ -40,11 +40,6 @@ Route::get('/drawings', Drawings::class)->name('drawings');
 Route::get('/all-projects', AllProjects::class)->name('all-projects');
 Route::get('/documents', Documents::class)->name('documents');
 
-
-/* Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard'); */
-
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::redirect('settings', 'settings/profile');
     Route::get('dashboard/insight', IndexDashboard::class)->name('dashboard.index-dashboard');

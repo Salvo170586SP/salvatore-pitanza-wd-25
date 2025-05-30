@@ -32,7 +32,7 @@ class DeleteDrawings extends ModalComponent
 
             $this->dispatch('closeModal');
             session()->flash('message', 'Drawing deleted successfully!');
-            $this->redirect('/admin/drawings', navigate: true);
+            $this->redirect('/dashboard/drawings', navigate: true);
         } catch (\Illuminate\Validation\ValidationException $e) {
             $this->dispatch('validation-error', $e->validator->errors()->first());
             return;

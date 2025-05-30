@@ -16,10 +16,10 @@ class EditBiography extends Component
     public $description;
     public $img_url;
     public $img_name;
-
+ 
     protected $rules = [
         'description' => 'required|string|min:10|max:2000',
-        'img_url' => 'required',
+        'img_url' => 'required|image|max:2048|mimes:jpg,jpeg,png,gif',
     ];
 
 
@@ -45,6 +45,9 @@ class EditBiography extends Component
         $this->dispatch('form-reset');
     }
 
+  
+
+
     public function editBiography()
     {
         // Verifica nuovamente l'autorizzazione
@@ -54,6 +57,7 @@ class EditBiography extends Component
 
         $this->validate();
 
+   
         try {
             // Gestione dell'immagine
             $url = $this->user->img_url;  // Mantiene l'URL esistente come default
@@ -61,9 +65,7 @@ class EditBiography extends Component
 
             // Se è stata caricata una nuova immagine
             if ($this->img_url && !is_string($this->img_url)) {
-                $this->validate([
-                    'img_url' => 'image|max:2048|mimes:jpg,jpeg,png,gif'
-                ]);
+              
 
                 // Se esiste già un'immagine, la eliminiamo
                 if ($this->user->img_url) {
@@ -82,7 +84,7 @@ class EditBiography extends Component
             ]);
 
             session()->flash('message', 'Biografia aggiornata con successo.');
-            return $this->redirect('/admin/biographies', navigate: true);
+            return $this->redirect('/dashboard/biographies', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', 'Si è verificato un errore durante l\'aggiornamento della biografia: ' . $e->getMessage());
             return null;

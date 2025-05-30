@@ -55,7 +55,7 @@ class EditTrainings extends Component
 
             session()->flash('message', 'Training updated successfully!');
 
-            $this->redirect('/admin/trainings', navigate: true);
+            $this->redirect('/dashboard/trainings', navigate: true);
             
         } catch (\Illuminate\Validation\ValidationException $e) {
             $this->dispatch('validation-error', $e->validator->errors()->first());
