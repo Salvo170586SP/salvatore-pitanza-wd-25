@@ -16,16 +16,21 @@
                 </button>
             </div>
 
-            <div class="w-full flex gap-5">
+            <div class="w-full flex items-start gap-5">
 
                 <div x-data="{ fileName: '', imageUrl: '' }" @form-reset.window="fileName = ''; imageUrl = ''"
                     class="flex flex-col justify-center items-center mb-10 mt-5">
                     <div class="text-sm text-gray-600">
-                        <div class="space-y-2">
+                        <div x-show="imageUrl" class="space-y-2">
                             <figure class="w-[350px] h-[369px] overflow-hidden shadow-md rounded-lg">
-                                <img :src="imageUrl ? imageUrl : 'https://static.thenounproject.com/png/261694-200.png'"
-                                    class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50" :class="imageUrl ? 'opacity-100' : ''" alt="Anteprima immagine">
+                                <img :src="imageUrl"
+                                    class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50"
+                                    :class="imageUrl ? 'opacity-100' : ''" alt="Anteprima immagine">
                             </figure>
+                        </div>
+                        <div x-show="!imageUrl"
+                            class="w-[350px] h-[369px] flex items-center justify-center text-lg font-bold text-orange-400 rounded-lg overflow-hidden border bg-yellow-50">
+                            NO IMG
                         </div>
                     </div>
                     <div class="flex flex-col items-center mt-5">
@@ -33,7 +38,8 @@
                         <div class="relative group">
                             <input type="file" id="image_upload" name="image_upload"
                                 class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*"
-                                wire:model="img_url" x-on:change="
+                                wire:model="img_url"
+                                x-on:change="
                        fileName = $event.target.files[0].name;
                        imageUrl = URL.createObjectURL($event.target.files[0])
                       ">
@@ -48,20 +54,32 @@
                                 Selected file
                             </div>
                             @error('img_url')
-                            <small class="text-red-500">{{ $message }}</small>
+                                <small class="text-red-500">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
                 </div>
-                <div class="w-full flex flex-col">
-                    <div class="flex flex-col justify-between items-start">
-                        <label for="description">Description *</label>
-                        <textarea wire:model="description" id="description" rows="15"
-                            class="w-full border shadow p-1 rounded-lg dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] bg-gray-100 hover:bg-gray-200 text-md"></textarea>
+                <div class="w-full">
+                    <div class="w-full flex flex-col mb-3">
+                        <div class="flex flex-col justify-between items-start">
+                            <label for="description">Description *</label>
+                            <textarea wire:model="description" id="description" rows="7"
+                                class="w-full border shadow p-1 rounded-lg dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] bg-gray-100 hover:bg-gray-200 text-md"></textarea>
+                        </div>
+                        @error('description')
+                            <small class="text-red-500">{{ $message }}</small>
+                        @enderror
                     </div>
-                    @error('description')
-                    <small class="text-red-500">{{ $message }}</small>
-                    @enderror
+                    <div class="w-full flex flex-col">
+                        <div class="flex flex-col justify-between items-start">
+                            <label for="description_ita">Description ita *</label>
+                            <textarea wire:model="description_ita" id="description_ita" rows="7"
+                                class="w-full shadow p-1 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] bg-gray-100 hover:bg-gray-200 rounded-lg  text-md"></textarea>
+                        </div>
+                        @error('description_ita')
+                            <small class="text-red-500">{{ $message }}</small>
+                        @enderror
+                    </div>
                 </div>
             </div>
             <div class="w-full flex justify-end items-center mt-5">

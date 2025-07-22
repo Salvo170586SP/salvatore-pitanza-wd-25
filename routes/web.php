@@ -35,6 +35,8 @@ Route::get('/', function () {
     return view('welcome');
 })/* ->name('home') */;
 
+ 
+
 Route::get('/', Home::class)->name('home');
 Route::get('/drawings', Drawings::class)->name('drawings');
 Route::get('/all-projects', AllProjects::class)->name('all-projects');

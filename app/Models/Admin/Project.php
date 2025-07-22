@@ -13,11 +13,13 @@ class Project extends Model
     protected $fillable = [
         'admin_id',
         'title',
+        'title_ita',
         'img_url',
         'img_name',
         'url_git',
         'url_web',
         'description',
+        'description_ita',
         'is_aviable'
     ];
 

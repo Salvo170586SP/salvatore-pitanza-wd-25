@@ -14,8 +14,12 @@ class Experience extends Model
     protected $fillable = [
         'admin_id',
         'title',
+        'title_ita',
         'subtitle',
+        'subtitle_ita',
         'description',
+        'description_ita',
+
      ];
 
     public function admin()

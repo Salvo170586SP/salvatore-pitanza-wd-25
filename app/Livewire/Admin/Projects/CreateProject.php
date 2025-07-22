@@ -14,7 +14,9 @@ class CreateProject extends Component
 
     public $user;
     public $title;
+    public $title_ita;
     public $description;
+    public $description_ita;
     public $img_url;
     public $url_git;
     public $url_web;
@@ -23,8 +25,10 @@ class CreateProject extends Component
 
     protected $rules = [
         'title' => 'required|string|max:255',
+        'title_ita' => 'required|string|max:255',
         'description' => 'string|max:1000',
-        'img_url' => 'required',
+        'description_ita' => 'string|max:1000',
+        'img_url' => 'nullable',
         'url_git' => 'nullable|url',
         'url_web' => 'nullable|url',
         'is_aviable' => 'boolean',
@@ -32,7 +36,7 @@ class CreateProject extends Component
 
     public function resetForm()
     {
-        $this->reset(['title', 'description', 'img_url', 'url_git', 'url_web', 'img_name', 'is_aviable']);
+        $this->reset();
         $this->dispatch('form-reset');
     }
 
@@ -42,6 +46,7 @@ class CreateProject extends Component
         
         try {
             $url = null;
+            $name_img = null;
             if ($this->img_url) {
                 $url = $this->img_url->store('projects', 'public');
                 $name_img = $this->img_url->getClientOriginalName();
@@ -50,7 +55,9 @@ class CreateProject extends Component
             Project::create([
                 'admin_id' => Auth::id(),
                 'title' => $this->title,
+                'title_ita' => $this->title_ita,
                 'description' => trim($this->description) ?: null,
+                'description_ita' => trim($this->description_ita) ?: null,
                 'img_url' => $url,
                 'img_name' => $name_img,
                 'url_git' => trim($this->url_git) ?: null,
@@ -61,11 +68,11 @@ class CreateProject extends Component
             session()->flash('message', 'Project created successfully.');
 
             $this->reset();
-
+            
             return $this->redirect('/dashboard/projects', navigate: true);
-        } catch (\Exception $e) {
-            session()->flash('error', $e->getMessage());
-            return $this->redirect('/dashboard/projects', navigate: true);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            $this->dispatch('validation-error', $e->validator->errors()->first());
+            return;
         }
     }
 

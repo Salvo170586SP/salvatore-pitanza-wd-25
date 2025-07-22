@@ -2,7 +2,7 @@
     <div class="min-h-screen w-full mx-auto flex flex-col py-25 items-center bg-slate-50">
         <livewire:components-welcome.navbar />
 
-        <div class="text-center w-full pb-10">
+        <div class="text-center w-full pb-10 px-10">
             <h2 class="font-bold text-3xl md:text-4xl flex items-end justify-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
                     <path
@@ -12,27 +12,37 @@
                 </svg>
 
                 <div class="text-[30px] uppercase">
-                  My <span class='text-gray-500'>Documents</span>
+                    {!! __('doc.title') !!}
                 </div>
             </h2>
-            <p class="font-medium text-sm mt-2">Page dedicated to my CV, my certificates and my cover letter.</p>
+            <p class="font-medium text-sm mt-2"> {!! __('doc.subtitle') !!}</p>
         </div>
 
         @if($documents->count() > 0)
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 p-4 md:p-8 w-full max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 p-10 md:p-8 w-full max-w-7xl mx-auto">
             @foreach($documents as $document)
             {{-- card --}}
             <div
-                class="w-full h-full aspect-[3/2] border bg-gray-100  text-black hover:shadow-xl rounded-x transition duration-300 ease-in-out rounded-xl flex justify-center items-center">
+                class="w-full h-full aspect-[3/2] border border-gray-400 bg-gray-100  text-black hover:shadow-xl rounded-x transition duration-300 ease-in-out rounded-xl flex justify-center items-center">
                 <div class="w-full font-bold text-lg p-4 text-center">
-                    <h3 class="text-gray-800 uppercase mb-2">{{ $document->title }}</h3>
+                    <h3 class="text-gray-800 uppercase mb-2">
+                        @if(session('locale') === 'en')
+                        {{ $document->title }}
+                        @else
+                        {{ $document->title_ita }}
+                        @endif
+                    </h3>
                     <div class="w-full">
                         <div class="text-sm text-gray-500 mb-2">
+                            @if(session('locale') === 'en')
                             {{ $document->description }}
+                            @else
+                            {{ $document->description_ita }}
+                            @endif
                         </div>
                         <div class="w-full flex justify-center gap-2">
                             <a href="{{ asset('/storage/'.$document->img_url) }}" target="_blank"
-                                class="cursor-pointer uppercase flex items-center bg-gray-400 hover:bg-gray-600 px-5 py-2 text-sm text-white font-semibold rounded-lg">
+                                class="cursor-pointer uppercase flex items-center bg-black hover:bg-gray-700 px-5 py-2 text-xs text-white font-semibold rounded-lg">
                                 @php
                                 $extension = pathinfo($document->img_url, PATHINFO_EXTENSION);
                                 $isPdf = strtolower($extension) === 'pdf';

@@ -14,7 +14,9 @@ class EditProject extends Component
 
     public $project;
     public $title;
+    public $title_ita;
     public $description;
+    public $description_ita;
     public $img_url;
     public $url_git;
     public $url_web;
@@ -23,8 +25,10 @@ class EditProject extends Component
 
     protected $rules = [
         'title' => 'required|string|max:255',
+        'title_ita' => 'required|string|max:255',
         'description' => 'string|max:1000',
-        'img_url' => 'required',
+        'description_ita' => 'string|max:1000',
+        'img_url' => 'nullable',
         'url_git' => 'nullable|url',
         'url_web' => 'nullable|url',
         'is_aviable' => 'boolean',
@@ -34,7 +38,9 @@ class EditProject extends Component
     {
         $this->project = $project;
         $this->title = $project->title;
+        $this->title_ita = $project->title_ita;
         $this->description = $project->description;
+        $this->description_ita = $project->description_ita;
         $this->url_git = $project->url_git;
         $this->url_web = $project->url_web;
         $this->img_name = $project->img_name;
@@ -47,7 +53,7 @@ class EditProject extends Component
 
     public function resetForm()
     {
-        $this->reset(['title', 'description', 'img_url', 'url_git', 'url_web', 'img_name', 'is_aviable']);
+        $this->reset();
         $this->dispatch('form-reset');
     }
 
@@ -79,7 +85,9 @@ class EditProject extends Component
 
             $this->project->update([
                 'title' => $this->title,
+                'title_ita' => $this->title_ita,
                 'description' => trim($this->description) ?: null,
+                'description_ita' => trim($this->description_ita) ?: null,
                 'img_url' => $url,
                 'img_name' => $name_img,
                 'url_git' => trim($this->url_git) ?: null,

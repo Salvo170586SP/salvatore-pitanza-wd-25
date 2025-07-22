@@ -19,11 +19,16 @@
             <div x-data="{ fileName: '', imageUrl: '' }" @form-reset.window="fileName = ''; imageUrl = ''"
                 class="h-[290px] flex flex-col justify-center items-center mb-10">
                 <div class="text-sm text-gray-600">
-                    <div class="space-y-2">
+                    <div  x-show="imageUrl" class="space-y-2">
                         <figure class="w-[250px] h-[250px] overflow-hidden shadow-md">
-                            <img :src="imageUrl ? imageUrl : 'https://static.thenounproject.com/png/261694-200.png'"
+                            <img :src="imageUrl"
                                 class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50 rounded-lg" :class="imageUrl ? 'opacity-100' : ''" alt="Anteprima immagine">
                         </figure>
+                    </div>
+                    <div x-show="!imageUrl" class="space-y-2">
+                        <div class="w-[250px] h-[200px] flex items-center justify-center text-3xl font-bold text-orange-400 rounded-lg overflow-hidden border bg-yellow-50">
+                            IMG
+                        </div>
                     </div>
                 </div>
                 <div class="flex flex-col items-center mt-5">

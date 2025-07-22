@@ -31,6 +31,7 @@ class User extends Authenticatable
         'img_url',
         'img_name',
         'description',
+        'description_ita',
     ];
 
     /**

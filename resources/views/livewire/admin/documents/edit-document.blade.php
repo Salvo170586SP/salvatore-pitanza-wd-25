@@ -16,7 +16,8 @@
                 </button>
             </div>
 
-            <div x-data="{ fileName: '', imageUrl: '', isPdf: {{ Str::endsWith($img_url, '.pdf') ? 'true' : 'false' }} }" @form-reset.window="fileName = ''; imageUrl = ''; isPdf = false"
+            <div x-data="{ fileName: '', imageUrl: '', isPdf: {{ Str::endsWith($img_url, '.pdf') ? 'true' : 'false' }} }"
+                @form-reset.window="fileName = ''; imageUrl = ''; isPdf = false"
                 class="h-[290px] flex flex-col items-center justify-center mb-10">
                 <div class="text-sm text-gray-600">
                     <div class="space-y-2">
@@ -31,73 +32,97 @@
                         <template x-if="!isPdf">
                             <figure class="w-[250px] h-[250px] overflow-hidden shadow-md">
                                 <img :src="imageUrl ? imageUrl : '{{ $img_url ?? 'https://static.thenounproject.com/png/261694-200.png' }}'"
-                                    class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50 @if($img_url) opacity-100 @endif rounded-lg"   alt="Anteprima file">
-                            </figure>
-                        </template>
-                    </div>
-                </div>
-                <div class="flex flex-col items-center mt-5">
-                    <label for="image_upload" class="mb-2">Upload Document*</label>
-                    <div class="relative group">
-                        <input type="file" id="image_upload" name="image_upload"
-                            class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="application/pdf,image/*"
-                            wire:model="img_url" x-on:change="
+                                    class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50 @if ($img_url) opacity-100 @endif
+                rounded-lg" alt="Anteprima file">
+                </figure>
+                </template>
+            </div>
+        </div>
+        <div class="flex flex-col items-center mt-5">
+            <label for="image_upload" class="mb-2">Upload Document*</label>
+            <div class="relative group">
+                <input type="file" id="image_upload" name="image_upload"
+                    class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="application/pdf,image/*"
+                    wire:model="img_url"
+                    x-on:change="
                         const file = $event.target.files[0];
                         fileName = file.name;
                         isPdf = file.type === 'application/pdf';
                         imageUrl = URL.createObjectURL(file)
                         ">
-                        <div
-                            class="w-full h-[37px] rounded-md bg-gray-400 dark:bg-[#474747] group-hover:dark:bg-[#505050] group-hover:bg-gray-600 text-white flex items-center justify-center px-5 shadow">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                                fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            Selected file
-                        </div>
-                        @error('img_url')
-                        <small class="text-red-500">{{ $message }}</small>
-                        @enderror
-                    </div>
+                <div
+                    class="w-full h-[37px] rounded-md bg-gray-400 dark:bg-[#474747] group-hover:dark:bg-[#505050] group-hover:bg-gray-600 text-white flex items-center justify-center px-5 shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Selected file
                 </div>
-            </div>
-
-
-            <div class="w-full flex flex-col mb-5">
-                <div class="w-full h-[66px] flex flex-col justify-between">
-                    <label for="title">Title*</label>
-                    <input type="text" wire:model="title" id="title"
-                        class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
-                </div>
-                @error('title')
-                <small class="text-red-500">{{ $message }}</small>
+                @error('img_url')
+                    <small class="text-red-500">{{ $message }}</small>
                 @enderror
             </div>
-
-            <div class="w-full flex flex-col mb-5">
-                <div class=" flex flex-col justify-between">
-                    <label for="description">Description</label>
-                    <textarea wire:model="description" id="description" rows="5"
-                        class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded px-1 text-md"></textarea>
-                </div>
-                @error('description')
-                <small class="text-red-500">{{ $message }}</small>
-                @enderror
-            </div>
-
-            <div class="flex justify-end items-center">
-                <button type="button" @click="fileName = ''; imageUrl = ''" wire:click="resetForm"
-                    class="cursor-pointer  flex justify-center items-center rounded-md shadow w-[190px] h-[36px] bg-gray-400 hover:bg-gray-600 dark:bg-[#505050] dark:hover:bg-[#585858] text-[15px] font-semibold text-white me-3">
-                    Cancel
-                </button>
-                <button wire:click="editProject"
-                    class="cursor-pointer flex justify-center items-center rounded-md shadow w-[190px] h-[36px] bg-blue-400 dark:bg-blue-700 hover:bg-blue-600 text-[15px] font-semibold text-white">
-                    Edit
-                </button>
-            </div>
-
         </div>
     </div>
+
+
+    <div class="w-full flex gap-3 mb-3">
+        <div class="w-full flex flex-col">
+            <div class="w-full h-[66px] flex flex-col justify-between">
+                <label for="title">Title*</label>
+                <input type="text" wire:model="title" id="title"
+                    class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+            </div>
+            @error('title')
+                <small class="text-red-500">{{ $message }}</small>
+            @enderror
+        </div>
+        <div class="w-full flex flex-col">
+            <div class="w-full h-[66px] flex flex-col justify-between">
+                <label for="title_ita">Title Ita*</label>
+                <input type="text" wire:model="title_ita" id="title_ita"
+                    class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+            </div>
+            @error('title_ita')
+                <small class="text-red-500">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+
+    <div class="w-full flex flex-col mb-5">
+        <div class=" flex flex-col justify-between">
+            <label for="description">Description</label>
+            <textarea wire:model="description" id="description" rows="5"
+                class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded px-1 text-md"></textarea>
+        </div>
+        @error('description')
+            <small class="text-red-500">{{ $message }}</small>
+        @enderror
+    </div>
+    <div class="w-full flex flex-col mb-5">
+        <div class=" flex flex-col justify-between">
+            <label for="description_ita">Description Ita</label>
+            <textarea wire:model="description_ita" id="description_ita" rows="5"
+                class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded px-1 text-md"></textarea>
+        </div>
+        @error('description_ita')
+            <small class="text-red-500">{{ $message }}</small>
+        @enderror
+    </div>
+
+    <div class="flex justify-end items-center">
+        <button type="button" @click="fileName = ''; imageUrl = ''" wire:click="resetForm"
+            class="cursor-pointer  flex justify-center items-center rounded-md shadow w-[190px] h-[36px] bg-gray-400 hover:bg-gray-600 dark:bg-[#505050] dark:hover:bg-[#585858] text-[15px] font-semibold text-white me-3">
+            Cancel
+        </button>
+        <button wire:click="editProject"
+            class="cursor-pointer flex justify-center items-center rounded-md shadow w-[190px] h-[36px] bg-blue-400 dark:bg-blue-700 hover:bg-blue-600 text-[15px] font-semibold text-white">
+            Edit
+        </button>
+    </div>
+
+</div>
+</div>
 </div>

@@ -3,7 +3,7 @@
         <div class="w-full p-5">
             <div class="w-full flex justify-between items-center mb-5 pb-5">
                 <div class="flex items-end font-bold text-lg text-center uppercase">
-                    {{$experience->title}}
+                    {{ $experience->title }}
                 </div>
                 <button wire:navigate href="/dashboard/experiences"
                     class="rounded-md cursor-pointer flex justify-center items-center shadow w-[200px] h-[36px] bg-gray-400 hover:bg-gray-600 dark:bg-[#474747] hover:dark:bg-[#505050] text-[15px] font-semibold text-white">
@@ -15,19 +15,55 @@
                     Back to Experience
                 </button>
             </div>
-            <div class="flex flex-col w-full mb-5">
-                <div class="font-bold ms-1 mb-1">Title</div>
-                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">{{$experience->title ?? '-'}}</div>
+            <div class="flex gap-3">
+                <div class="flex flex-col w-full mb-5">
+                    <div class="font-bold ms-1 mb-1">Title</div>
+                    <div
+                        class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">
+                        {{ $experience->title ?? '-' }}</div>
+                </div>
+                <div class="flex flex-col w-full mb-5">
+                    <div class="font-bold ms-1 mb-1">Title Ita</div>
+                    <div
+                        class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">
+                        {{ $experience->title_ita ?? '-' }}</div>
+                </div>
             </div>
-            <div class="flex flex-col w-full mb-5">
-                <div class="font-bold ms-1 mb-1">Subtitle</div>
-                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">{{$experience->subtitle ?? '-'}}</div>
+            <div class="flex gap-3">
+                <div class="flex flex-col w-full mb-5">
+                    <div class="font-bold ms-1 mb-1">Subtitle</div>
+                    <div
+                        class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">
+                        {{ $experience->subtitle ?? '-' }}</div>
+                </div>
+                <div class="flex flex-col w-full mb-5">
+                    <div class="font-bold ms-1 mb-1">Subtitle Ita</div>
+                    <div
+                        class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">
+                        {{ $experience->subtitle_ita ?? '-' }}</div>
+                </div>
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Description</div>
-                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2  h-[200px] overflow-auto break-all">@if($experience->description)
-                    {{$experience->description}} @else <span class="text-gray-400">Descrizione non disponibile</span>
-                    @endif</div>
+                <div
+                    class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2  h-[200px] overflow-auto break-all">
+                    @if ($experience->description)
+                        {{ $experience->description }}
+                    @else
+                        <span class="text-gray-400">Descrizione non disponibile</span>
+                    @endif
+                </div>
+            </div>
+            <div class="flex flex-col w-full mb-5">
+                <div class="font-bold ms-1 mb-1">Description Ita</div>
+                <div
+                    class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2  h-[200px] overflow-auto break-all">
+                    @if ($experience->description_ita)
+                        {{ $experience->description_ita }}
+                    @else
+                        <span class="text-gray-400">Descrizione non disponibile</span>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

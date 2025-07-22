@@ -44,10 +44,16 @@
                                 Title
                             </th>
                             <th scope="col" class="text-start">
+                                Title Ita
+                            </th>
+                            <th scope="col" class="text-start">
                                 Name Img
                             </th>
                             <th scope="col" class="text-start">
                                 Description
+                            </th>
+                            <th scope="col" class="text-start">
+                                Description Ita
                             </th>
                             <th scope="col" class="text-end">
                             </th>
@@ -82,6 +88,11 @@
                             </td>
                             <td>
                                 <div class="text-sm">
+                                    {{ substr($document->title_ita , 0, 10) }}...
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-sm">
                                     @if($document->img_name)
                                     {{ substr($document->img_name , 0, 10) }}...
                                     @else
@@ -93,6 +104,15 @@
                                 <div class="text-sm">
                                     @if($document->description)
                                     {{ substr($document->description , 0, 20) }}...
+                                    @else
+                                    -
+                                    @endif
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-sm">
+                                    @if($document->description)
+                                    {{ substr($document->description_ita , 0, 20) }}...
                                     @else
                                     -
                                     @endif

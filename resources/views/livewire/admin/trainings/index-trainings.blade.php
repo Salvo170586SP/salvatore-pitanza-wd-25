@@ -41,10 +41,19 @@
                                 Title
                             </th>
                             <th scope="col" class="text-start">
+                                Title Ita
+                            </th>
+                            <th scope="col" class="text-start">
                                 Subtitle
                             </th>
                             <th scope="col" class="text-start">
+                                Subtitle Ita
+                            </th>
+                            <th scope="col" class="text-start">
                                 Description
+                            </th>
+                            <th scope="col" class="text-start">
+                                Description Ita
                             </th>
                             <th scope="col" class="text-end">
                             </th>
@@ -62,7 +71,20 @@
                             </td>
                             <td>
                                 <div class="text-sm">
+                                    @if($training->title)
                                     {{ substr($training->title , 0, 10) }}...
+                                    @else
+                                    -
+                                    @endif
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-sm">
+                                    @if($training->title_ita)
+                                    {{ substr($training->title_ita , 0, 10) }}...
+                                    @else
+                                    -
+                                    @endif
                                 </div>
                             </td>
                             <td>
@@ -76,8 +98,26 @@
                             </td>
                             <td>
                                 <div class="text-sm">
+                                    @if($training->subtitle_ita)
+                                    {{ substr($training->subtitle_ita , 0, 10) }}...
+                                    @else
+                                    -
+                                    @endif
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-sm">
                                     @if($training->description)
                                     {{ substr($training->description , 0, 20) }}...
+                                    @else
+                                    -
+                                    @endif
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-sm">
+                                    @if($training->description_ita)
+                                    {{ substr($training->description_ita , 0, 20) }}...
                                     @else
                                     -
                                     @endif

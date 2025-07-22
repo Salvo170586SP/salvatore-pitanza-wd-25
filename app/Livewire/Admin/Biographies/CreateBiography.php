@@ -12,6 +12,7 @@ class CreateBiography extends Component
     use WithFileUploads;
 
     public $description;
+    public $description_ita;
     public $img_url;
     public $img_name;
 
@@ -19,10 +20,12 @@ class CreateBiography extends Component
     {
         $biographyExists = User::select('description', 'img_url', 'img_name')
             ->whereNotNull('description')
+            ->whereNotNull('description_ita')
             ->whereNotNull('img_url')
             ->whereNotNull('img_name')
             ->where(function ($query) {
                 $query->where('description', '!=', '')
+                    ->where('description_ita', '!=', '')
                     ->where('img_url', '!=', '')
                     ->where('img_name', '!=', '');
             })
@@ -36,12 +39,13 @@ class CreateBiography extends Component
 
     protected $rules = [
         'description' => 'string|max:2000',
+        'description_ita' => 'string|max:2000',
         'img_url' => 'required',
     ];
 
     public function resetForm()
     {
-        $this->reset(['description', 'img_url']);
+        $this->reset(['description','description_ita','img_url']);
         $this->dispatch('form-reset');
     }
 
@@ -66,11 +70,12 @@ class CreateBiography extends Component
 
             $user->update([
                 'description' => trim($this->description) ?: null,
+                'description_ita' => trim($this->description_ita) ?: null,
                 'img_url' => $url,
                 'img_name' => $name_img,
             ]);
 
-            session()->flash('message', 'Biography created successfully.');
+            session()->flash('message', 'Biography created successfully');
 
             $this->reset();
 

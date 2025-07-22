@@ -16,8 +16,7 @@
                 </button>
             </div>
 
-            <div x-data="{ fileName: '', imageUrl: '', isPdf: false }"
-                @form-reset.window="fileName = ''; imageUrl = ''; isPdf = false"
+            <div x-data="{ fileName: '', imageUrl: '', isPdf: false }" @form-reset.window="fileName = ''; imageUrl = ''; isPdf = false"
                 class="h-[290px] flex flex-col justify-center items-center mb-10">
                 <div class="text-sm text-gray-600">
                     <div class="space-y-2">
@@ -34,12 +33,18 @@
                             </div>
                         </template>
                         <template x-if="!isPdf">
-                            <figure class="w-[250px] h-[250px] overflow-hidden shadow-md">
-                                <img :src="imageUrl ? imageUrl : 'https://static.thenounproject.com/png/261694-200.png'"
-                                    class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50 rounded-lg" :class="imageUrl ? 'opacity-100' : ''"
-                                    alt="Anteprima file">
+                            <figure x-show="imageUrl && !isPdf" class="w-[250px] h-[250px] overflow-hidden shadow-md">
+                                <img :src="imageUrl"
+                                    class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50 rounded-lg"
+                                    :class="imageUrl ? 'opacity-100' : ''" alt="Anteprima file">
                             </figure>
                         </template>
+                        <div x-show="!imageUrl && !isPdf" class="space-y-2">
+                            <div
+                                class="w-[250px] h-[200px] flex items-center justify-center text-3xl font-bold text-orange-400 rounded-lg overflow-hidden border bg-yellow-50">
+                                Doc
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="flex flex-col items-center mt-5">
@@ -47,7 +52,8 @@
                     <div class="relative group">
                         <input type="file" id="image_upload" name="image_upload"
                             class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                            accept="application/pdf,image/*" wire:model="img_url" x-on:change="
+                            accept="application/pdf,image/*" wire:model="img_url"
+                            x-on:change="
                     const file = $event.target.files[0];
                     fileName = file.name;
                     isPdf = file.type === 'application/pdf';
@@ -64,22 +70,34 @@
                             Selected file
                         </div>
                         @error('img_url')
-                        <small class="text-red-500">{{ $message }}</small>
+                            <small class="text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
                 </div>
             </div>
 
 
-            <div class="w-full flex flex-col mb-5">
-                <div class="w-full h-[66px] flex flex-col justify-between">
-                    <label for="title">Title*</label>
-                    <input type="text" wire:model="title" id="title"
-                        class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+            <div class="w-full flex gap-3">
+                <div class="w-full flex flex-col mb-3">
+                    <div class="w-full h-[66px] flex flex-col justify-between">
+                        <label for="title">Title*</label>
+                        <input type="text" wire:model="title" id="title"
+                            class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+                    </div>
+                    @error('title')
+                        <small class="text-red-500">{{ $message }}</small>
+                    @enderror
                 </div>
-                @error('title')
-                <small class="text-red-500">{{ $message }}</small>
-                @enderror
+                <div class="w-full flex flex-col mb-3">
+                    <div class="w-full h-[66px] flex flex-col justify-between">
+                        <label for="title_ita">Title Ita*</label>
+                        <input type="text" wire:model="title_ita" id="title_ita"
+                            class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+                    </div>
+                    @error('title_ita')
+                        <small class="text-red-500">{{ $message }}</small>
+                    @enderror
+                </div>
             </div>
 
 
@@ -90,7 +108,17 @@
                         class="bg-gray-100 hover:bg-gray-200 px-1 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded  text-md"></textarea>
                 </div>
                 @error('description')
-                <small class="text-red-500">{{ $message }}</small>
+                    <small class="text-red-500">{{ $message }}</small>
+                @enderror
+            </div>
+            <div class="w-full flex flex-col mb-5">
+                <div class=" flex flex-col justify-between">
+                    <label for="description_ita">Description Ita</label>
+                    <textarea wire:model="description_ita" id="description_ita" rows="5"
+                        class="bg-gray-100 hover:bg-gray-200 px-1 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded  text-md"></textarea>
+                </div>
+                @error('description_ita')
+                    <small class="text-red-500">{{ $message }}</small>
                 @enderror
             </div>
 

@@ -19,29 +19,25 @@
         <flux:navlist variant="outline">
             <flux:navlist.group :heading="__('Platform')" class="grid">
                 <flux:navlist.item icon="home" :href="route('dashboard.index-dashboard')"
-                    :current="request()->routeIs('dashboard.index-dashboard')" wire:navigate>{{ __('Dashboard') }}
+                    :current="request()->routeIs('dashboard.index-dashboard')" wire:navigate>Dashboard 
                 </flux:navlist.item>
                 <flux:navlist.item icon="chat-bubble-bottom-center-text" :href="route('dashboard.biographies')"
-                    :current="request()->routeIs('dashboard.biographies')" wire:navigate>{{
-                    __('Biographies') }}
+                    :current="request()->routeIs('dashboard.biographies')" wire:navigate>Biographies 
                 </flux:navlist.item>
                 <flux:navlist.item icon="code-bracket-square" :href="route('dashboard.projects')"
-                    :current="request()->routeIs('dashboard.projects')" wire:navigate>{{ __('Projects') }}
+                    :current="request()->routeIs('dashboard.projects')" wire:navigate>Projects 
                 </flux:navlist.item>
                 <flux:navlist.item icon="academic-cap" :href="route('dashboard.trainings')"
-                    :current="request()->routeIs('dashboard.trainings')" wire:navigate>{{ __('Trainings') }}
+                    :current="request()->routeIs('dashboard.trainings')" wire:navigate> Trainings 
                 </flux:navlist.item>
                 <flux:navlist.item icon="briefcase" :href="route('dashboard.experiences')"
-                    :current="request()->routeIs('dashboard.experiences')" wire:navigate>{{
-                    __('Experiences') }}
+                    :current="request()->routeIs('dashboard.experiences')" wire:navigate>Experiences 
                 </flux:navlist.item>
                 <flux:navlist.item icon="pencil" :href="route('dashboard.drawings')"
-                    :current="request()->routeIs('dashboard.drawings')" wire:navigate>{{
-                    __('Drawings') }}
+                    :current="request()->routeIs('dashboard.drawings')" wire:navigate>Drawings 
                 </flux:navlist.item>
                 <flux:navlist.item icon="document-duplicate" :href="route('dashboard.documents')"
-                    :current="request()->routeIs('dashboard.documents')" wire:navigate>{{
-                    __('Documents') }}
+                    :current="request()->routeIs('dashboard.documents')" wire:navigate>Documents 
                 </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>

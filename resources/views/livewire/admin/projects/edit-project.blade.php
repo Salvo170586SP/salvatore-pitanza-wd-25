@@ -16,14 +16,20 @@
                 </button>
             </div>
 
-            <div x-data="{ fileName: '', imageUrl: '' }" @form-reset.window="fileName = ''; imageUrl = ''"
+            <div x-data="{ fileName: '', imageUrl: '' }"
+                @form-reset.window="fileName = ''; imageUrl = ''"
                 class="h-[290px] flex flex-col items-center justify-center mb-10">
                 <div class="text-sm text-gray-600">
-                    <div class="space-y-2">
+                    <div  x-show="imageUrl" class="space-y-2">
                         <figure class="w-[250px] h-[250px] overflow-hidden shadow-md">
-                            <img :src="imageUrl ? imageUrl : '{{ $img_url ?? 'https://static.thenounproject.com/png/261694-200.png' }}'"
-                                class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50 @if($img_url) opacity-100 @endif rounded-lg" alt="Anteprima immagine">
+                            <img :src="imageUrl"
+                                class="w-full h-full object-cover object-top bg-gray-100 dark:bg-[#4b4b4b] opacity-50 @if ($img_url) opacity-100 @endif rounded-lg" alt="Anteprima immagine">
                         </figure>
+                    </div>
+                    <div x-show="!imageUrl" class="space-y-2">
+                        <div class="w-[250px] h-[200px] flex items-center justify-center text-3xl font-bold text-orange-400 rounded-lg overflow-hidden border bg-yellow-50">
+                            IMG
+                        </div>
                     </div>
                 </div>
                 <div class="flex flex-col items-center mt-5">
@@ -63,6 +69,16 @@
                     <small class="text-red-500">{{ $message }}</small>
                     @enderror
                 </div>
+                <div class="w-full flex flex-col">
+                    <div class="w-full h-[66px] flex flex-col justify-between">
+                        <label for="title_ita">Title Ita*</label>
+                        <input type="text" wire:model="title_ita" id="title_ita"
+                            class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+                    </div>
+                    @error('title_ita')
+                    <small class="text-red-500">{{ $message }}</small>
+                    @enderror
+                </div>
 
                 <div class="w-full flex flex-col">
                     <div class="w-full h-[66px] flex flex-col justify-between">
@@ -87,7 +103,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="w-full flex flex-col">
+            <div class="w-full flex flex-col mb-3">
                 <div class=" flex flex-col justify-between">
                     <label for="description">Description</label>
                     <textarea wire:model="description" id="description" rows="5"
@@ -97,10 +113,20 @@
                 <small class="text-red-500">{{ $message }}</small>
                 @enderror
             </div>
+            <div class="w-full flex flex-col">
+                <div class=" flex flex-col justify-between">
+                    <label for="description_ita">Description Ita</label>
+                    <textarea wire:model="description_ita" id="description_ita" rows="5"
+                        class="px-1 bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded  text-md"></textarea>
+                </div>
+                @error('description_ita')
+                <small class="text-red-500">{{ $message }}</small>
+                @enderror
+            </div>
 
             <div class="h-[66px] flex items-center">
-                <input type="checkbox" wire:model="is_aviable" id="is_aviable" @if($is_aviable==1) checked @endif
-                    class="border border-[#D8D5D5] h-[20px] w-[20px] me-2 text-md accent-black dark:accent-[#505050] dark:hover:bg-[#5e5e5e] cursor-pointer">
+                <input type="checkbox" wire:model="is_aviable" id="is_aviable" @if ($is_aviable == 1) checked @endif
+                class="border border-[#D8D5D5] h-[20px] w-[20px] me-2 text-md accent-black dark:accent-[#505050] dark:hover:bg-[#5e5e5e] cursor-pointer">
                 <label for="is_aviable">Available</label>
             </div>
 

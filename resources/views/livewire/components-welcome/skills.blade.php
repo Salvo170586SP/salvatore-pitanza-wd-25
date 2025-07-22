@@ -10,16 +10,16 @@
                 </svg>
 
                 <div>
-                   Skills & <span class='text-gray-500'>Abilities</span>
+                    {!! __('skills.skills') !!}
                 </div>
             </h2>
         </div>
         <div
-            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 text-center gap-3 md:gap-5 p-5 md:p-10 rounded-2xl md:rounded-3xl overflow-auto">
+            class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-7 text-center gap-3 md:gap-5 p-5 md:p-10 rounded-2xl md:rounded-3xl overflow-auto">
 
             {{-- card --}}
             <div
-                class="w-30 h-30  flex flex-col justify-center items-center bg-slate-200  hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200  hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[40px] h-[40px] md:w-[50px] md:h-[50px]">
                     <img src="{{asset('/imgs/icon/laravel-icon.png')}}" alt="laravel" class="w-full h-full" />
                 </figure>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30  flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl rounded-xl text-base transition">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl rounded-xl text-base transition">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/php.svg')}}" alt="php" class="w-full h-full" />
                 </figure>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/livewire.svg')}}" alt="livewire" class="w-full h-full" />
                 </figure>
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/alpinejs.png')}}" alt="alpinejs" class="w-full h-full" />
                 </figure>
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/mysql.svg')}}" alt="mysql" class="w-full h-full" />
                 </figure>
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/tailwind.png')}}" alt="tailwind" class="w-full h-full" />
                 </figure>
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/bootstrap.svg')}}" alt="Bootstrap" class="w-full h-full" />
                 </figure>
@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/html.png')}}" alt="html" class="w-full h-full" />
                 </figure>
@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/css.svg')}}" alt="css3" class="w-full h-full" />
                 </figure>
@@ -118,7 +118,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/sass.png')}}" alt="Sass" class="w-full h-full" />
                 </figure>
@@ -129,7 +129,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/js.svg')}}" alt="javascript" class="w-full h-full" />
                 </figure>
@@ -140,7 +140,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/jquery.svg')}}" alt="jquery" class="w-full h-full" />
                 </figure>
@@ -151,7 +151,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/git.svg')}}" alt="Git" class="w-full h-full  rounded-full" />
                 </figure>
@@ -162,7 +162,7 @@
                 </div>
             </div>
             <div
-                class="w-30 h-30 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
+                class="w-30 h-30 border border-gray-400 flex flex-col justify-center items-center bg-slate-200 hover:scale-110  hover:shadow-xl transition rounded-xl text-base">
                 <figure class="w-[50px] h-[50px] lg:h-[50px] lg:w-[50px]">
                     <img src="{{asset('/imgs/icon/github.svg')}}" alt="GitHub"
                         class="w-full h-full bg-white rounded-full" />

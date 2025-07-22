@@ -14,7 +14,9 @@ class EditDocument extends Component
 
     public $document;
     public $title;
+    public $title_ita;
     public $description;
+    public $description_ita;
     public $img_url;
     public $img_name;
 
@@ -28,7 +30,9 @@ class EditDocument extends Component
     {
         $this->document = $document;
         $this->title = $document->title;
+        $this->title_ita = $document->title_ita;
         $this->description = $document->description;
+        $this->description_ita = $document->description_ita;
         $this->img_name = $document->img_name;
 
         if ($document->img_url) {
@@ -38,7 +42,7 @@ class EditDocument extends Component
 
     public function resetForm()
     {
-        $this->reset(['title', 'description', 'img_url', 'img_name']);
+        $this->reset();
         $this->dispatch('form-reset');
     }
 
@@ -81,7 +85,9 @@ class EditDocument extends Component
 
             $this->document->update([
                 'title' => $this->title,
+                'title_ita' => $this->title_ita,
                 'description' => trim($this->description) ?: null,
+                'description_ita' => trim($this->description_ita) ?: null,
                 'img_url' => $url,
                 'img_name' => $name_img
             ]);

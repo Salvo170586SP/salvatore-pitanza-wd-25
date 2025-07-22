@@ -4,11 +4,12 @@
             <div class="w-full flex justify-between items-center mb-5 pb-5">
                 <div class="flex items-end font-bold text-lg text-center uppercase">
                     <div class="me-5 mt-5">
-                        <div class="h-15 w-15 font-bold flex justify-center items-center bg-gray-300 dark:bg-[#474747] rounded-lg p-2">
+                        <div
+                            class="h-15 w-15 font-bold flex justify-center items-center bg-gray-300 dark:bg-[#474747] rounded-lg p-2">
                             {!! $training->icon_url !!}
                         </div>
                     </div>
-                    {{$training->title}}
+                    {{ $training->title }}
                 </div>
                 <button wire:navigate href="/dashboard/trainings"
                     class="rounded-md cursor-pointer flex justify-center items-center shadow w-[200px] h-[36px] bg-gray-400 hover:bg-gray-600 dark:bg-[#474747] hover:dark:bg-[#505050] text-[15px] font-semibold text-white">
@@ -20,19 +21,55 @@
                     Back to Trainings
                 </button>
             </div>
-            <div class="flex flex-col w-full mb-5">
-                <div class="font-bold ms-1 mb-1">Title</div>
-                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">{{$training->title ?? '-'}}</div>
+            <div class="flex gap-3">
+                <div class="flex flex-col w-full mb-5">
+                    <div class="font-bold ms-1 mb-1">Title</div>
+                    <div
+                        class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">
+                        {{ $training->title ?? '-' }}</div>
+                </div>
+                <div class="flex flex-col w-full mb-5">
+                    <div class="font-bold ms-1 mb-1">Title Ita</div>
+                    <div
+                        class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">
+                        {{ $training->title_ita ?? '-' }}</div>
+                </div>
             </div>
-            <div class="flex flex-col w-full mb-5">
-                <div class="font-bold ms-1 mb-1">Subtitle</div>
-                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">{{$training->subtitle ?? '-'}}</div>
+            <div class="flex gap-3">
+                <div class="flex flex-col w-full mb-5">
+                    <div class="font-bold ms-1 mb-1">Subtitle</div>
+                    <div
+                        class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">
+                        {{ $training->subtitle ?? '-' }}</div>
+                </div>
+                <div class="flex flex-col w-full mb-5">
+                    <div class="font-bold ms-1 mb-1">Subtitle Ita</div>
+                    <div
+                        class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2">
+                        {{ $training->subtitle_ita ?? '-' }}</div>
+                </div>
             </div>
             <div class="flex flex-col w-full mb-5">
                 <div class="font-bold ms-1 mb-1">Description</div>
-                <div class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2  h-[200px] overflow-auto break-all">@if($training->description)
-                    {{$training->description}} @else <span class="text-gray-400">Descrizione non disponibile</span>
-                    @endif</div>
+                <div
+                    class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2  h-[200px] overflow-auto break-all">
+                    @if ($training->description)
+                        {{ $training->description }}
+                    @else
+                        <span class="text-gray-400">Descrizione non disponibile</span>
+                    @endif
+                </div>
+            </div>
+            <div class="flex flex-col w-full mb-5">
+                <div class="font-bold ms-1 mb-1">Description Ita</div>
+                <div
+                    class="rounded-lg bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] p-2  h-[200px] overflow-auto break-all">
+                    @if ($training->description_ita)
+                        {{ $training->description_ita }}
+                    @else
+                        <span class="text-gray-400">Descrizione non disponibile</span>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

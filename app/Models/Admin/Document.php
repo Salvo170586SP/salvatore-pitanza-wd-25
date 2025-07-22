@@ -10,7 +10,9 @@ class Document extends Model
     protected $fillable = [
         'admin_id',
         'title',
+        'title_ita',
         'description',
+        'description_ita',
         'img_url',
         'img_name',
     ];

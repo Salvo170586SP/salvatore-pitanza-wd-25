@@ -37,11 +37,20 @@
                             <th scope="col" class="text-start px-2">
                                 Title
                             </th>
+                            <th scope="col" class="text-start px-2">
+                                Title Ita
+                            </th>
                             <th scope="col" class="text-start">
                                 Subtitle
                             </th>
                             <th scope="col" class="text-start">
+                                Subtitle Ita
+                            </th>
+                            <th scope="col" class="text-start">
                                 Description
+                            </th>
+                            <th scope="col" class="text-start">
+                                Description Ita
                             </th>
                             <th scope="col" class="text-end">
                             </th>
@@ -56,6 +65,11 @@
                                 </div>
                             </td>
                             <td>
+                                <div class="text-sm px-2">
+                                    {{ substr($experience->title_ita , 0, 10) }}...
+                                </div>
+                            </td>
+                            <td>
                                 <div class="text-sm">
                                     @if($experience->subtitle)
                                     {{ substr($experience->subtitle , 0, 10) }}...
@@ -66,8 +80,26 @@
                             </td>
                             <td>
                                 <div class="text-sm">
+                                    @if($experience->subtitle_ita)
+                                    {{ substr($experience->subtitle_ita , 0, 10) }}...
+                                    @else
+                                    -
+                                    @endif
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-sm">
                                     @if($experience->description)
                                     {{ substr($experience->description , 0, 20) }}...
+                                    @else
+                                    -
+                                    @endif
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-sm">
+                                    @if($experience->description_ita)
+                                    {{ substr($experience->description_ita , 0, 20) }}...
                                     @else
                                     -
                                     @endif

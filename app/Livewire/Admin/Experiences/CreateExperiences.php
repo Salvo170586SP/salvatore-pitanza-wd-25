@@ -11,16 +11,22 @@ class CreateExperiences extends Component
     public $title;
     public $subtitle;
     public $description;
+    public $title_ita;
+    public $subtitle_ita;
+    public $description_ita;
 
     protected $rules = [
         'title' => 'required|string|max:255',
         'subtitle' => 'nullable',
         'description' => 'string|max:1000',
+        'title_ita' => 'required|string|max:255',
+        'subtitle_ita' => 'nullable',
+        'description_ita' => 'string|max:1000',
     ];
 
     public function resetForm()
     {
-        $this->reset(['title', 'description', 'subtitle',]);
+        $this->reset();
         $this->dispatch('form-reset');
     }
 
@@ -34,6 +40,9 @@ class CreateExperiences extends Component
                 'title' => $this->title,
                 'subtitle' => trim($this->subtitle) ?: null,
                 'description' => trim($this->description) ?: null,
+                'title_ita' => $this->title_ita,
+                'subtitle_ita' => trim($this->subtitle_ita) ?: null,
+                'description_ita' => trim($this->description_ita) ?: null,
             ]);
 
             session()->flash('message', 'Experience created successfully!');

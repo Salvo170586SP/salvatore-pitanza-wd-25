@@ -43,10 +43,16 @@
                                 Title
                             </th>
                             <th scope="col" class="text-start">
+                                Title Ita
+                            </th>
+                            <th scope="col" class="text-start">
                                 Name Img
                             </th>
                             <th scope="col" class="text-start">
                                 Description
+                            </th>
+                            <th scope="col" class="text-start">
+                                Description Ita
                             </th>
                             <th scope="col" class="text-center pe-10">
                                 Available
@@ -67,15 +73,34 @@
                         <tr class="@if(!$loop->last) border-b @endif dark:border-[#3d3d3d] h-[55px]" wire:key="project-{{$project->id}}">
                             <td>
                                 <div class="p-4">
+                                    @if($project->img_url)
                                     <figure class="w-[50px] h-[50px] rounded-lg overflow-hidden">
                                         <img src="{{ asset('storage/' . $project->img_url) }}" alt="{{$project->title}}"
                                             class="w-full h-full rounded-lg object-cover">
                                     </figure>
+                                    @else
+                                    <div class="w-[50px] h-[50px] flex items-center justify-center text-sm font-bold text-orange-400 rounded-lg overflow-hidden border bg-yellow-50">
+                                        IMG
+                                    </div>
+                                    @endif
                                 </div>
                             </td>
                             <td>
                                 <div class="text-sm">
+                                    @if($project->title)
                                     {{ substr($project->title , 0, 10) }}...
+                                    @else
+                                    -
+                                    @endif
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-sm">
+                                    @if($project->title_ita)
+                                    {{ substr($project->title_ita , 0, 10) }}...
+                                    @else
+                                    -
+                                    @endif
                                 </div>
                             </td>
                             <td>
@@ -91,6 +116,15 @@
                                 <div class="text-sm">
                                     @if($project->description)
                                     {{ substr($project->description , 0, 20) }}...
+                                    @else
+                                    -
+                                    @endif
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-sm">
+                                    @if($project->description_ita)
+                                    {{ substr($project->description_ita , 0, 20) }}...
                                     @else
                                     -
                                     @endif

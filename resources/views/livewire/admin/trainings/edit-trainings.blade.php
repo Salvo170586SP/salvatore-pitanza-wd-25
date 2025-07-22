@@ -16,40 +16,63 @@
                 </button>
             </div>
 
-            <div class="w-full flex gap-5 mb-5">
-             
-                <div class="w-full flex flex-col">
-                    <div class="w-full h-[66px] flex flex-col justify-between">
-                        <label for="title">Title*</label>
-                        <input type="text" wire:model="title" id="title"
-                            class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+            <div class="w-full">
+                <div class="flex gap-3 mb-3">
+                    <div class="w-full flex flex-col">
+                        <div class="w-full h-[66px] flex flex-col justify-between">
+                            <label for="title">Title*</label>
+                            <input type="text" wire:model="title" id="title"
+                                class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+                        </div>
+                        @error('title')
+                            <small class="text-red-500">{{ $message }}</small>
+                        @enderror
                     </div>
-                    @error('title')
-                    <small class="text-red-500">{{ $message }}</small>
-                    @enderror
+                    <div class="w-full flex flex-col">
+                        <div class="w-full h-[66px] flex flex-col justify-between">
+                            <label for="title_ita">Title Ita*</label>
+                            <input type="text" wire:model="title_ita" id="title_ita"
+                                class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+                        </div>
+                        @error('title_ita')
+                            <small class="text-red-500">{{ $message }}</small>
+                        @enderror
+                    </div>
                 </div>
-                <div class="w-full flex flex-col">
-                    <div class="w-full h-[66px] flex flex-col justify-between">
-                        <label for="subtitle">Subtitle</label>
-                        <input type="text" wire:model="subtitle" id="subtitle"
-                            class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+                <div class="flex gap-3 mb-3">
+                    <div class="w-full flex flex-col">
+                        <div class="w-full h-[66px] flex flex-col justify-between">
+                            <label for="subtitle">Subtitle</label>
+                            <input type="text" wire:model="subtitle" id="subtitle"
+                                class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+                        </div>
+                        @error('subtitle')
+                            <small class="text-red-500">{{ $message }}</small>
+                        @enderror
                     </div>
-                    @error('subtitle')
-                    <small class="text-red-500">{{ $message }}</small>
-                    @enderror
+                    <div class="w-full flex flex-col">
+                        <div class="w-full h-[66px] flex flex-col justify-between">
+                            <label for="subtitle_ita">Subtitle Ita</label>
+                            <input type="text" wire:model="subtitle_ita" id="subtitle_ita"
+                                class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded h-[37px] w-full text-md">
+                        </div>
+                        @error('subtitle_ita')
+                            <small class="text-red-500">{{ $message }}</small>
+                        @enderror
+                    </div>
                 </div>
             </div>
-               <div class="w-full flex flex-col mb-5">
-                    <div class="w-full  flex flex-col justify-between">
-                        <label for="icon_url">Icon*</label>
-                        <textarea  wire:model="icon_url" id="icon_url" rows="5"
-                            class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded  w-full text-md">
+            <div class="w-full flex flex-col mb-5">
+                <div class="w-full  flex flex-col justify-between">
+                    <label for="icon_url">Icon*</label>
+                    <textarea wire:model="icon_url" id="icon_url" rows="5"
+                        class="bg-gray-100 hover:bg-gray-200 dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] px-1 rounded  w-full text-md">
                         </textarea>
-                    </div>
-                    @error('icon_url')
-                    <small class="text-red-500">{{ $message }}</small>
-                    @enderror
                 </div>
+                @error('icon_url')
+                    <small class="text-red-500">{{ $message }}</small>
+                @enderror
+            </div>
             <div class="w-full flex flex-col">
                 <div class=" flex flex-col justify-between">
                     <label for="description">Description</label>
@@ -57,7 +80,17 @@
                         class="bg-gray-100 hover:bg-gray-200 px-1  dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded  text-md"></textarea>
                 </div>
                 @error('description')
-                <small class="text-red-500">{{ $message }}</small>
+                    <small class="text-red-500">{{ $message }}</small>
+                @enderror
+            </div>
+            <div class="w-full flex flex-col mt-3">
+                <div class=" flex flex-col justify-between">
+                    <label for="description_ita">Description Ita</label>
+                    <textarea wire:model="description_ita" id="description_ita" rows="5"
+                        class="bg-gray-100 hover:bg-gray-200 px-1  dark:border-[#505050] dark:bg-[#505050] dark:hover:bg-[#5e5e5e] rounded  text-md"></textarea>
+                </div>
+                @error('description_ita')
+                    <small class="text-red-500">{{ $message }}</small>
                 @enderror
             </div>
 

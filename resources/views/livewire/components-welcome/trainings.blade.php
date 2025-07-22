@@ -12,27 +12,37 @@
                         d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
                 </svg>
                 <div>
-                     My <span class='text-gray-500'>Trainings</span>
-                </div>
+                    {!! __('trainings.training') !!}
+                 </div>
             </h2>
-            <p class="font-medium text-sm mt-2">My main instructions and actions dedicated to social issues.</p>
+            <p class="font-medium text-sm mt-2">{{ __('trainings.trainingSub') }} </p>
         </div>
         <div class="flex justify-center items-center flex-col flex-wrap lg:flex-row gap-5 mt-5 px-4 md:px-0">
             @foreach ($trainings->take(4) as $training)
             {{-- card --}}
             <div
-                class="w-100 md:w-150 lg:w-250 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-white">
+                class="w-100 md:w-150 lg:w-250 overflow-hidden md:h-full flex flex-col md:flex-row justify-center items-center hover:shadow-lg  border border-gray-400 transition rounded-xl bg-white">
                 <div
                     class="w-full h-[60px] md:w-[150px] md:h-[150px] bg-gray-400 flex justify-center items-center text-white">
                     {!! $training->icon_url !!}
                 </div>
+                @if(session('locale') === 'en')
                 <div class="w-full my-2 px-5">
                     <p class="text-xl font-bold">{{ $training->title }}</p>
                     <p class="text-md font-bold">{{ $training->subtitle }}</p>
-                    <p class="font-medium text-sm md:text-md">
+                    <p class="font-medium text-xs">
                         {{ $training->description }}
                     </p>
                 </div>
+                @else
+                <div class="w-full my-2 px-5">
+                    <p class="text-xl font-bold">{{ $training->title_ita }}</p>
+                    <p class="text-md font-bold">{{ $training->subtitle_ita }}</p>
+                    <p class="font-medium text-xs">
+                        {{ $training->description_ita }}
+                    </p>
+                </div>
+                @endif
             </div>
             @endforeach
         </div>

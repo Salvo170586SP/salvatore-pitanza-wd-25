@@ -11,28 +11,63 @@
                 </svg>
 
                 <div>
-                    My <span class='text-gray-500'>Experience</span>
+                    {!! __('experiences.title') !!}
                 </div>
             </h2>
-            <p class="font-medium text-sm mt-2">My main work experiences and socially dedicated actions.</p>
+            <p class="font-medium text-sm mt-2"> {!! __('experiences.subtitle') !!}</p>
         </div>
+    
         <div class="flex justify-center items-center flex-col flex-wrap lg:flex-row  mt-5 md:mt-10 px-4 md:px-0">
             @forelse($experiences->take(5) as $experience)
             {{-- card --}}
             <div class="flex flex-col justify-center items-center">
+                @if (session('locale') === 'en')
                 <div
-                    class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden bg-gray-50 flex flex-col border md:flex-row justify-center items-center hover:shadow-lg shadow transition rounded-xl">
+                    class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden mb-5 bg-gray-50 flex flex-col md:flex-row justify-center items-center hover:shadow-lg border border-gray-400 transition rounded-xl">
                     <div class="w-full my-2 px-5">
-                        <p class="text-xl font-bold">@if($experience->title){{$experience->title}}@endif</p>
-                        <p class="text-md font-bold">@if($experience->subtitle){{$experience->subtitle}}@endif</p>
+                        <p class="text-xl font-bold">
+                            @if ($experience->title)
+                            {{ $experience->title }}
+                            @endif
+                        </p>
+                        <p class="text-md font-bold">
+                            @if ($experience->subtitle)
+                            {{ $experience->subtitle }}
+                            @endif
+                        </p>
                         <p class="font-medium text-sm md:text-md">
-                            @if($experience->description){{$experience->description}}@endif
+                            @if ($experience->description)
+                            {{ $experience->description }}
+                            @endif
                         </p>
                     </div>
                 </div>
-                @if(!$loop->last)
-                <div class="w-1 h-8 bg-gray-600"></div>
+                @else
+                <div
+                    class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden mb-5 bg-gray-50 flex flex-col border md:flex-row justify-center items-center hover:shadow-lg border border-gray-400 transition rounded-xl">
+                    <div class="w-full my-2 px-5">
+                        <p class="text-xl font-bold">
+                            @if ($experience->title_ita)
+                            {{ $experience->title_ita }}
+                            @endif
+                        </p>
+                        <p class="text-md font-bold">
+                            @if ($experience->subtitle_ita)
+                            {{ $experience->subtitle_ita }}
+                            @endif
+                        </p>
+                        <p class="font-medium text-sm md:text-md">
+                            @if ($experience->description_ita)
+                            {{ $experience->description_ita }}
+                            @endif
+                        </p>
+                    </div>
+                </div>
                 @endif
+
+               {{--  @if (!$loop->last)
+                <div class="w-1 h-8 bg-gray-600"></div>
+                @endif --}}
             </div>
             @empty
 
@@ -49,76 +84,6 @@
                 <div class="w-1 h-8 bg-gray-600"></div>
             </div>
             @endforelse
-
-            {{-- <div class="flex flex-col justify-center items-center">
-                <div
-                    class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden  flex flex-col md:flex-row border justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-gray-50">
-                    <div class="w-full my-2 px-5">
-                        <p class="text-xl font-bold">Laravel Developer</p>
-                        <p class="text-md font-bold">Aqua Consulting</p>
-                        <p class="font-medium text-sm md:text-md">
-                            Laravel Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vitae iste dolorem
-                            laborum
-                            molestiae optio in omnis accusantium suscipit sint facere fuga maxime voluptatum
-                            perspiciatis
-                            sapiente, deserunt mollitia iure ex.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-1 h-8 bg-gray-600"></div>
-            </div> --}}
-
-            {{-- <div class="flex flex-col justify-center items-center">
-                <div
-                    class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden  flex flex-col md:flex-row border justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-gray-50">
-                    <div class="w-full my-2 px-5">
-                        <p class="text-xl font-bold">Full Stack Web Developer</p>
-                        <p class="text-md font-bold">Boolean Careers</p>
-                        <p class="font-medium text-sm md:text-md">
-                            Laravel Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vitae iste dolorem
-                            laborum
-                            molestiae optio in omnis accusantium suscipit sint facere fuga maxime voluptatum
-                            perspiciatis
-                            sapiente, deserunt mollitia iure ex.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-1 h-8 bg-gray-600"></div>
-            </div> --}}
-
-            {{-- <div class="flex flex-col justify-center items-center">
-                <div
-                    class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250 overflow-hidden flex flex-col md:flex-row border justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-gray-50">
-                    <div class="w-full my-2 px-5">
-                        <p class="text-xl font-bold">Operatore Socio Sanitario</p>
-                        <p class="font-medium text-sm md:text-md">
-                            Laravel Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vitae iste dolorem
-                            laborum
-                            molestiae optio in omnis accusantium suscipit sint facere fuga maxime voluptatum
-                            perspiciatis
-                            sapiente, deserunt mollitia iure ex.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-1 h-8 bg-gray-600"></div>
-            </div> --}}
-
-            {{-- <div class="flex flex-col justify-center items-center">
-                <div
-                    class="w-100 md:w-150 md:h-30 lg:h-30 lg:w-250  overflow-hidden flex flex-col md:flex-row border justify-center items-center hover:shadow-lg shadow transition rounded-xl bg-gray-50">
-                    <div class="w-full my-2 px-5">
-                        <p class="text-xl font-bold">Volontariato UNIPA</p>
-                        <p class="text-md font-bold">Cooperativa "Who is Handy?"</p>
-                        <p class="font-medium text-sm md:text-md">
-                            Laravel Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vitae iste dolorem
-                            laborum
-                            molestiae optio in omnis accusantium suscipit sint facere fuga maxime voluptatum
-                            perspiciatis
-                            sapiente, deserunt mollitia iure ex.
-                        </p>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </section>
 </div>
