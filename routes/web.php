@@ -11,7 +11,6 @@ use App\Livewire\Admin\Documents\ShowDocument;
 use App\Livewire\Admin\Drawings\CreateDrawings;
 use App\Livewire\Admin\Drawings\EditDrawings;
 use App\Livewire\Admin\Drawings\IndexDrawings;
-use App\Livewire\Admin\Drawings\ShowDrawings;
 use App\Livewire\Admin\Experiences\CreateExperiences;
 use App\Livewire\Admin\Experiences\EditExperiences;
 use App\Livewire\Admin\Experiences\IndexExperiences;
@@ -33,15 +32,16 @@ use Livewire\Volt\Volt;
 
 Route::get('/', function () {
     return view('welcome');
-})/* ->name('home') */;
+});
 
  
-
+/* front */
 Route::get('/', Home::class)->name('home');
 Route::get('/drawings', Drawings::class)->name('drawings');
 Route::get('/all-projects', AllProjects::class)->name('all-projects');
 Route::get('/documents', Documents::class)->name('documents');
 
+/* back */
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::redirect('settings', 'settings/profile');
     Route::get('dashboard/insight', IndexDashboard::class)->name('dashboard.index-dashboard');
